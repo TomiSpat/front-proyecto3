@@ -75,15 +75,77 @@ export const PRIORITY_COLORS: Record<ClaimPriority, string> = {
   [ClaimPriority.URGENT]: "text-red-600 font-bold",
 }
 
+// Acciones permitidas por estado (coincide con backend State Pattern)
 export const STATUS_ALLOWED_ACTIONS: Record<
   ClaimStatus,
-  { canEdit: boolean; canComment: boolean; canReassign: boolean; canResolve: boolean }
+  { canEdit: boolean; canComment: boolean; canReassign: boolean; canResolve: boolean; allowedTransitions: ClaimStatus[] }
 > = {
-  [ClaimStatus.PENDING]: { canEdit: true, canComment: true, canReassign: true, canResolve: false },
-  [ClaimStatus.IN_PROCESS]: { canEdit: true, canComment: true, canReassign: true, canResolve: true },
-  [ClaimStatus.IN_REVIEW]: { canEdit: true, canComment: true, canReassign: true, canResolve: true },
-  [ClaimStatus.RESOLVED]: { canEdit: false, canComment: false, canReassign: false, canResolve: false },
-  [ClaimStatus.CANCELLED]: { canEdit: false, canComment: false, canReassign: false, canResolve: false },
+  [ClaimStatus.PENDING]: { 
+    canEdit: true, 
+    canComment: true, 
+    canReassign: true, 
+    canResolve: false,
+    allowedTransitions: [ClaimStatus.IN_PROCESS, ClaimStatus.CANCELLED]
+  },
+  [ClaimStatus.IN_PROCESS]: { 
+    canEdit: true, 
+    canComment: true, 
+    canReassign: true, 
+    canResolve: false, // No puede resolver directamente, debe pasar por EN_REVISION
+    allowedTransitions: [ClaimStatus.IN_REVIEW, ClaimStatus.PENDING, ClaimStatus.CANCELLED]
+  },
+  [ClaimStatus.IN_REVIEW]: { 
+    canEdit: false, 
+    canComment: true, 
+    canReassign: false, 
+    canResolve: true,
+    allowedTransitions: [ClaimStatus.RESOLVED, ClaimStatus.IN_PROCESS, ClaimStatus.CANCELLED]
+  },
+  [ClaimStatus.RESOLVED]: { 
+    canEdit: false, 
+    canComment: false, 
+    canReassign: false, 
+    canResolve: false,
+    allowedTransitions: [ClaimStatus.IN_PROCESS] // Solo reabrir
+  },
+  [ClaimStatus.CANCELLED]: { 
+    canEdit: false, 
+    canComment: false, 
+    canReassign: false, 
+    canResolve: false,
+    allowedTransitions: [] // Estado final
+  },
+}
+
+// Requisitos para transiciones de estado
+export const TRANSITION_REQUIREMENTS: Record<ClaimStatus, {
+  requiresResponsable?: boolean
+  requiresArea?: boolean
+  requiresObservaciones?: boolean
+  requiresResolucion?: boolean
+  requiresMotivo?: boolean
+  description: string
+}> = {
+  [ClaimStatus.PENDING]: {
+    description: "Reclamo pendiente de asignación"
+  },
+  [ClaimStatus.IN_PROCESS]: {
+    requiresResponsable: true,
+    requiresArea: true,
+    description: "Requiere responsable o área asignada"
+  },
+  [ClaimStatus.IN_REVIEW]: {
+    requiresObservaciones: true,
+    description: "Requiere observaciones o resumen de resolución propuesta"
+  },
+  [ClaimStatus.RESOLVED]: {
+    requiresResolucion: true,
+    description: "Requiere resumen final de la resolución"
+  },
+  [ClaimStatus.CANCELLED]: {
+    requiresMotivo: true,
+    description: "Requiere motivo de cancelación"
+  },
 }
 
 // Labels para mostrar en UI
