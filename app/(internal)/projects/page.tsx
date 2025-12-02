@@ -67,7 +67,7 @@ export default function ProjectsPage() {
   const filteredProjects = projects.filter(
     (p) =>
       p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      p.clientName.toLowerCase().includes(searchTerm.toLowerCase()),
+      (p.clientName?.toLowerCase() ?? "").includes(searchTerm.toLowerCase()),
   )
 
   return (
@@ -137,7 +137,7 @@ export default function ProjectsPage() {
                       <TableCell className="font-medium">{project.id}</TableCell>
                       <TableCell>{project.name}</TableCell>
                       <TableCell>{project.clientName}</TableCell>
-                      <TableCell>{project.type}</TableCell>
+                      <TableCell>{project.tipoProyectoName || "Sin tipo"}</TableCell>
                       <TableCell>
                         <span
                           className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${

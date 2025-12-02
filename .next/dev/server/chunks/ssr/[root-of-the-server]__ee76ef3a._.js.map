@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/pc/Desktop/2025/Programacion%20avanzada/Proyecto%203/front-proyecto3/front-proyecto3/app/page.tsx"],"sourcesContent":["import { redirect } from \"next/navigation\"\r\n\r\nexport default function Home() {\r\n  // Root automatically redirects to login\r\n  redirect(\"/login\")\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;AAAA;;AAEe,SAAS;IACtB,wCAAwC;IACxC,IAAA,ySAAQ,EAAC;AACX"}}]
+}

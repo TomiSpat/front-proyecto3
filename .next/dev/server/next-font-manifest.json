@@ -1,51 +1,21 @@
 {
   "app": {
-    "[project]/app/(client)/home/page": [
+    "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/app/(internal)/claims/new/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2",
       "static/media/68d403cf9f2c68c5-s.p.f9f15f61.woff2"
     ],
-    "[project]/app/(client)/my-claims/[id]/page": [
+    "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/app/(internal)/claims/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2",
       "static/media/68d403cf9f2c68c5-s.p.f9f15f61.woff2"
     ],
-    "[project]/app/(client)/my-claims/new/page": [
+    "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/app/(internal)/dashboard/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2",
       "static/media/68d403cf9f2c68c5-s.p.f9f15f61.woff2"
     ],
-    "[project]/app/(internal)/claims/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/68d403cf9f2c68c5-s.p.f9f15f61.woff2"
-    ],
-    "[project]/app/(internal)/clients/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/68d403cf9f2c68c5-s.p.f9f15f61.woff2"
-    ],
-    "[project]/app/(internal)/dashboard/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/68d403cf9f2c68c5-s.p.f9f15f61.woff2"
-    ],
-    "[project]/app/(internal)/projects/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/68d403cf9f2c68c5-s.p.f9f15f61.woff2"
-    ],
-    "[project]/app/(internal)/reports/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/68d403cf9f2c68c5-s.p.f9f15f61.woff2"
-    ],
-    "[project]/app/login/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/68d403cf9f2c68c5-s.p.f9f15f61.woff2"
-    ],
-    "[project]/app/page": [
+    "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/app/(internal)/projects/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
       "static/media/797e433ab948586e-s.p.dbea232f.woff2",
       "static/media/68d403cf9f2c68c5-s.p.f9f15f61.woff2"

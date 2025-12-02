@@ -135,7 +135,6 @@ function mapBackendProject(project: BackendProject): Project {
     tipoProyectoName: tipoProyectoName,
     startDate: project.fechaInicio,
     endDate: project.fechaFin,
-    budget: project.presupuesto,
     isActive: !project.isDeleted,
     createdAt: project.createdAt,
   }
@@ -448,7 +447,6 @@ export const api = {
       tipoProyectoId: string
       fechaInicio: string
       fechaFin?: string
-      presupuesto: number
     }): Promise<Project> => {
       const project = await apiFetch<BackendProject>("/proyecto", {
         method: "POST",
@@ -464,7 +462,6 @@ export const api = {
       tipoProyectoId: string
       fechaInicio: string
       fechaFin?: string
-      presupuesto: number
     }>): Promise<Project> => {
       const project = await apiFetch<BackendProject>(`/proyecto/${id}`, {
         method: "PATCH",

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../../../../../../Desktop/2025/Programacion%20avanzada/Proyecto%203/front-proyecto3/front-proyecto3/app/%28internal%29/clients/loading.tsx"],"sourcesContent":["export default function Loading() {\r\n  return null\r\n}\r\n"],"names":[],"mappings":"uCAAe,SAAS,IACtB,OAAO,IACT"}

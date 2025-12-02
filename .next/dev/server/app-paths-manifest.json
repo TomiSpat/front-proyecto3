@@ -1,12 +1,6 @@
 {
-  "/(client)/home/page": "app/(client)/home/page.js",
-  "/(client)/my-claims/[id]/page": "app/(client)/my-claims/[id]/page.js",
-  "/(client)/my-claims/new/page": "app/(client)/my-claims/new/page.js",
+  "/(internal)/claims/new/page": "app/(internal)/claims/new/page.js",
   "/(internal)/claims/page": "app/(internal)/claims/page.js",
-  "/(internal)/clients/page": "app/(internal)/clients/page.js",
   "/(internal)/dashboard/page": "app/(internal)/dashboard/page.js",
-  "/(internal)/projects/page": "app/(internal)/projects/page.js",
-  "/(internal)/reports/page": "app/(internal)/reports/page.js",
-  "/login/page": "app/login/page.js",
-  "/page": "app/page.js"
+  "/(internal)/projects/page": "app/(internal)/projects/page.js"
 }
