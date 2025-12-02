@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(internal)/layout,_N_T_/(internal)/claims/layout,_N_T_/(internal)/claims/new/layout,_N_T_/(internal)/claims/new/page,_N_T_/claims/new"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGludGVybmFsKQ/claims/new/__PAGE__",
+    "/!KGludGVybmFsKQ/claims/new",
+    "/!KGludGVybmFsKQ/claims",
+    "/!KGludGVybmFsKQ",
+    "/_index",
+    "/_head"
+  ]
+}

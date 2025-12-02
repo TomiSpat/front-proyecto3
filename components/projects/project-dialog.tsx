@@ -34,7 +34,6 @@ interface ProjectFormData {
   tipoProyectoId: string
   fechaInicio: string
   fechaFin: string
-  presupuesto: number
 }
 
 export function ProjectDialog({ open, onOpenChange, project, onSuccess }: ProjectDialogProps) {
@@ -49,7 +48,6 @@ export function ProjectDialog({ open, onOpenChange, project, onSuccess }: Projec
     tipoProyectoId: "",
     fechaInicio: "",
     fechaFin: "",
-    presupuesto: 0,
   })
 
   useEffect(() => {
@@ -78,7 +76,6 @@ export function ProjectDialog({ open, onOpenChange, project, onSuccess }: Projec
         tipoProyectoId: project.tipoProyectoId || "",
         fechaInicio: project.startDate || "",
         fechaFin: project.endDate || "",
-        presupuesto: project.budget || 0,
       })
     } else {
       setFormData({
@@ -88,7 +85,6 @@ export function ProjectDialog({ open, onOpenChange, project, onSuccess }: Projec
         tipoProyectoId: "",
         fechaInicio: "",
         fechaFin: "",
-        presupuesto: 0,
       })
     }
   }, [project, open])
@@ -104,7 +100,6 @@ export function ProjectDialog({ open, onOpenChange, project, onSuccess }: Projec
         tipoProyectoId: formData.tipoProyectoId,
         fechaInicio: formData.fechaInicio,
         fechaFin: formData.fechaFin || undefined,
-        presupuesto: formData.presupuesto,
       }
 
       if (project) {
@@ -217,19 +212,6 @@ export function ProjectDialog({ open, onOpenChange, project, onSuccess }: Projec
                   onChange={(e) => setFormData({ ...formData, fechaFin: e.target.value })}
                 />
               </div>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="presupuesto">Presupuesto</Label>
-              <Input
-                id="presupuesto"
-                type="number"
-                min={0}
-                step={0.01}
-                value={formData.presupuesto}
-                onChange={(e) => setFormData({ ...formData, presupuesto: parseFloat(e.target.value) || 0 })}
-                placeholder="0.00"
-                required
-              />
             </div>
           </div>
           <DialogFooter>

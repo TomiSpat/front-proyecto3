@@ -44,7 +44,6 @@ export interface Project {
   tipoProyectoName?: string
   startDate: string
   endDate?: string
-  budget: number
   isActive: boolean
   createdAt?: string
 }
@@ -181,7 +180,6 @@ export interface BackendProject {
   tipoProyectoId: string | { _id: string; nombre: string }
   fechaInicio: string
   fechaFin?: string
-  presupuesto: number
   isDeleted: boolean
   createdAt?: string
   updatedAt?: string
