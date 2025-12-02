@@ -6,6 +6,7 @@ import {
   type TimelineEvent,
   type TipoProyecto,
   type ClaimStatistics,
+  type Notification,
   type BackendUser,
   type BackendClient,
   type BackendProject,
@@ -528,8 +529,8 @@ export const api = {
       prioridad: ClaimPriority
       criticidad: ClaimCriticality
       descripcion: string
-      areaActual?: ClaimArea
-      creadoPorUsuarioId?: string
+      areaInicial?: ClaimArea
+      responsableId?: string
     }): Promise<Claim> => {
       const claim = await apiFetch<BackendClaim>("/reclamo", {
         method: "POST",
@@ -543,7 +544,7 @@ export const api = {
       prioridad: ClaimPriority
       criticidad: ClaimCriticality
       descripcion: string
-      areaActual?: ClaimArea
+      areaInicial?: ClaimArea
       responsableActualId?: string
       estadoActual?: ClaimStatus
       resumenResolucion?: string
@@ -730,6 +731,22 @@ export const api = {
         avgResolutionTimeByType,
         claimsPerAgent,
       }
+    },
+  },
+
+  // ==========================================
+  // NOTIFICACIONES (stub - no implementado en backend)
+  // ==========================================
+  notifications: {
+    listByUser: async (userId: string): Promise<Notification[]> => {
+      // Backend no implementa notificaciones aún, retornar array vacío
+      return []
+    },
+    markAsRead: async (notificationId: string): Promise<void> => {
+      // Stub
+    },
+    markAllAsRead: async (userId: string): Promise<void> => {
+      // Stub
     },
   },
 }

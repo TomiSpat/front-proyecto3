@@ -34,6 +34,8 @@ __turbopack_context__.s([
     ()=>STATUS_LABELS,
     "SUB_AREAS",
     ()=>SUB_AREAS,
+    "TRANSITION_REQUIREMENTS",
+    ()=>TRANSITION_REQUIREMENTS,
     "TYPE_LABELS",
     ()=>TYPE_LABELS,
     "UserRole",
@@ -127,31 +129,71 @@ const STATUS_ALLOWED_ACTIONS = {
         canEdit: true,
         canComment: true,
         canReassign: true,
-        canResolve: false
+        canResolve: false,
+        allowedTransitions: [
+            "EN_PROCESO",
+            "CANCELADO"
+        ]
     },
     ["EN_PROCESO"]: {
         canEdit: true,
         canComment: true,
         canReassign: true,
-        canResolve: true
+        canResolve: false,
+        allowedTransitions: [
+            "EN_REVISION",
+            "PENDIENTE",
+            "CANCELADO"
+        ]
     },
     ["EN_REVISION"]: {
-        canEdit: true,
+        canEdit: false,
         canComment: true,
-        canReassign: true,
-        canResolve: true
+        canReassign: false,
+        canResolve: true,
+        allowedTransitions: [
+            "RESUELTO",
+            "EN_PROCESO",
+            "CANCELADO"
+        ]
     },
     ["RESUELTO"]: {
         canEdit: false,
         canComment: false,
         canReassign: false,
-        canResolve: false
+        canResolve: false,
+        allowedTransitions: [
+            "EN_PROCESO"
+        ] // Solo reabrir
     },
     ["CANCELADO"]: {
         canEdit: false,
         canComment: false,
         canReassign: false,
-        canResolve: false
+        canResolve: false,
+        allowedTransitions: [] // Estado final
+    }
+};
+const TRANSITION_REQUIREMENTS = {
+    ["PENDIENTE"]: {
+        description: "Reclamo pendiente de asignación"
+    },
+    ["EN_PROCESO"]: {
+        requiresResponsable: true,
+        requiresArea: true,
+        description: "Requiere responsable o área asignada"
+    },
+    ["EN_REVISION"]: {
+        requiresObservaciones: true,
+        description: "Requiere observaciones o resumen de resolución propuesta"
+    },
+    ["RESUELTO"]: {
+        requiresResolucion: true,
+        description: "Requiere resumen final de la resolución"
+    },
+    ["CANCELADO"]: {
+        requiresMotivo: true,
+        description: "Requiere motivo de cancelación"
     }
 };
 const STATUS_LABELS = {
@@ -780,6 +822,21 @@ const api = {
                 avgResolutionTimeByType,
                 claimsPerAgent
             };
+        }
+    },
+    // ==========================================
+    // NOTIFICACIONES (stub - no implementado en backend)
+    // ==========================================
+    notifications: {
+        listByUser: async (userId)=>{
+            // Backend no implementa notificaciones aún, retornar array vacío
+            return [];
+        },
+        markAsRead: async (notificationId)=>{
+        // Stub
+        },
+        markAllAsRead: async (userId)=>{
+        // Stub
         }
     }
 };
