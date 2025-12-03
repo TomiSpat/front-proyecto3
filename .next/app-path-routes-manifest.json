@@ -1,0 +1,16 @@
+{
+  "/(client)/home/page": "/home",
+  "/(client)/my-claims/[id]/page": "/my-claims/[id]",
+  "/(client)/my-claims/new/page": "/my-claims/new",
+  "/(internal)/claims/[id]/page": "/claims/[id]",
+  "/(internal)/claims/new/page": "/claims/new",
+  "/(internal)/claims/page": "/claims",
+  "/(internal)/clients/page": "/clients",
+  "/(internal)/dashboard/page": "/dashboard",
+  "/(internal)/projects/page": "/projects",
+  "/(internal)/reports/page": "/reports",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/login/page": "/login",
+  "/page": "/"
+}

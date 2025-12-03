@@ -1,5 +1,5 @@
 import { UserRole } from "@/lib/constants"
-import { LayoutDashboard, FileText, Users, Briefcase, BarChart3, Home, PlusCircle } from "lucide-react"
+import { FileText, Users, Briefcase, Home, PlusCircle, TrendingUp } from "lucide-react"
 
 export interface NavItem {
   title: string
@@ -11,16 +11,10 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   // Internal Routes
   {
-    title: "Dashboard",
-    href: "/dashboard",
-    icon: LayoutDashboard,
-    roles: [UserRole.ADMIN, UserRole.COORDINATOR],
-  },
-  {
     title: "Reclamos",
     href: "/claims",
     icon: FileText,
-    roles: [UserRole.ADMIN, UserRole.COORDINATOR, UserRole.AGENT, UserRole.AUDITOR],
+    roles: [UserRole.ADMIN, UserRole.COORDINATOR, UserRole.AGENT],
   },
   {
     title: "Clientes",
@@ -35,10 +29,10 @@ export const NAV_ITEMS: NavItem[] = [
     roles: [UserRole.ADMIN, UserRole.COORDINATOR],
   },
   {
-    title: "Reportes",
-    href: "/reports",
-    icon: BarChart3,
-    roles: [UserRole.ADMIN, UserRole.COORDINATOR, UserRole.AUDITOR],
+    title: "Estadísticas",
+    href: "/statistics",
+    icon: TrendingUp,
+    roles: [UserRole.ADMIN, UserRole.COORDINATOR],
   },
 
   // Client Routes

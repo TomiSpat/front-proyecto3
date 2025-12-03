@@ -17,7 +17,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     if (!isLoading && !user) {
       router.push("/login")
     } else if (!isLoading && user && user.role !== UserRole.CLIENT) {
-      router.push("/dashboard") // Internal users shouldn't be here
+      router.push("/claims") // Internal users shouldn't be here
     }
   }, [user, isLoading, router])
 

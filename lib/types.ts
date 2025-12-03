@@ -6,6 +6,20 @@ export { UserRole, ClaimStatus, ClaimPriority, ClaimCriticality, ClaimArea, Proj
 // TIPOS DEL FRONTEND
 // ==========================================
 
+export interface PaginationMeta {
+  total: number
+  page: number
+  limit: number
+  totalPages: number
+  hasNextPage: boolean
+  hasPreviousPage: boolean
+}
+
+export interface PaginatedResponse<T> {
+  data: T[]
+  meta: PaginationMeta
+}
+
 export interface User {
   id: string
   name: string
@@ -44,7 +58,6 @@ export interface Project {
   tipoProyectoName?: string
   startDate: string
   endDate?: string
-  budget: number
   isActive: boolean
   createdAt?: string
 }
@@ -60,12 +73,34 @@ export interface Attachment {
   uploadedBy: string
 }
 
+// Tipo de cambio en el historial
+export enum TimelineEventType {
+  ESTADO = 'ESTADO',
+  AREA = 'AREA',
+  RESPONSABLE = 'RESPONSABLE',
+}
+
 export interface TimelineEvent {
   id: string
   claimId: string
   fecha: string
+  tipoCambio: TimelineEventType
+  
+  // Campos para cambio de ESTADO
   estadoAnterior?: ClaimStatus
-  estadoNuevo: ClaimStatus
+  estadoNuevo?: ClaimStatus
+  
+  // Campos para cambio de AREA
+  areaAnterior?: ClaimArea
+  areaNueva?: ClaimArea
+  
+  // Campos para cambio de RESPONSABLE
+  responsableAnteriorId?: string
+  responsableAnteriorNombre?: string
+  responsableNuevoId?: string
+  responsableNuevoNombre?: string
+  
+  // Campos comunes
   areaResponsable?: ClaimArea
   usuarioId?: string
   usuarioNombre?: string
@@ -147,6 +182,7 @@ export interface BackendUser {
   rol: string
   areaAsignada?: string
   estado: string
+  clienteId?: string | { _id: string } // Puede venir como string o como objeto poblado
   createdAt?: string
   updatedAt?: string
 }
@@ -156,10 +192,10 @@ export interface BackendClient {
   nombre: string
   apellido: string
   numDocumento: string
-  fechaNacimiento: string
+  fechaNacimiento?: string
   numTelefono: string
   email: string
-  isDeleted: boolean
+  isDeleted?: boolean
   createdAt?: string
   updatedAt?: string
 }
@@ -176,50 +212,70 @@ export interface BackendTipoProyecto {
 export interface BackendProject {
   _id: string
   nombre: string
-  descripcion: string
-  clienteId: string | { _id: string; nombre: string; apellido: string }
-  tipoProyectoId: string | { _id: string; nombre: string }
-  fechaInicio: string
+  descripcion?: string
+  clienteNombre?: string
+  clienteApellido?: string
+  tipoProyecto?: string
+  clienteId?: string | { _id: string; nombre: string; apellido: string }
+  tipoProyectoId?: string | { _id: string; nombre: string }
+  fechaInicio?: string
   fechaFin?: string
-  presupuesto: number
-  isDeleted: boolean
+  isDeleted?: boolean
   createdAt?: string
   updatedAt?: string
 }
 
 export interface BackendClaim {
   _id: string
-  clienteId: string | { _id: string; nombre: string; apellido: string }
-  proyectoId: string | { _id: string; nombre: string }
-  tipoProyectoId: string | { _id: string; nombre: string }
+  clienteNombre?: string
+  clienteApellido?: string
+  proyectoNombre?: string
+  responsableNombre?: string
+  responsableApellido?: string
+  clienteId?: string | { _id: string; nombre: string; apellido: string }
+  proyectoId?: string | { _id: string; nombre: string }
+  tipoProyectoId?: string | { _id: string; nombre: string }
   codigo?: string
-  tipo: string
+  tipo?: string
   prioridad: string
-  criticidad: string
-  descripcion: string
-  areaActual: string
+  criticidad?: string
+  descripcion?: string
+  areaActual?: string
   estadoActual: string
-  puedeModificar: boolean
-  puedeReasignar: boolean
+  puedeModificar?: boolean
+  puedeReasignar?: boolean
   responsableActualId?: string | { _id: string; nombre: string; apellido: string }
-  creadoPorUsuarioId: string
+  creadoPorUsuarioId?: string
   fechaResolucion?: string
   fechaCierre?: string
   resumenResolucion?: string
   feedbackCliente?: string
   createdAt: string
-  updatedAt: string
+  updatedAt?: string
 }
 
 export interface BackendTimelineEvent {
   _id: string
   reclamoId: string
-  fecha: string
+  tipoCambio: string // 'ESTADO', 'AREA', 'RESPONSABLE'
+  fechaCambio: string // El backend envía fechaCambio
+  createdAt?: string
+  
+  // Cambio de ESTADO
   estadoAnterior?: string
-  estadoNuevo: string
+  estadoNuevo?: string
+  
+  // Cambio de AREA
+  areaAnterior?: string
+  areaNueva?: string
+  
+  // Cambio de RESPONSABLE
+  responsableAnteriorId?: { _id: string; nombre: string; apellido: string }
+  responsableNuevoId?: { _id: string; nombre: string; apellido: string }
+  
+  // Campos comunes
   areaResponsable?: string
-  usuarioId?: string
-  usuarioNombre?: string
+  usuarioResponsableId?: { _id: string; nombre: string; apellido: string }
   motivoCambio?: string
   observaciones?: string
 }

@@ -8,8 +8,9 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ClaimPriority, ClaimCriticality, ClaimArea, ClaimType, PRIORITY_LABELS, TYPE_LABELS } from "@/lib/constants"
-import { ArrowLeft } from "lucide-react"
+import { ClaimPriority, ClaimCriticality, ClaimArea, ClaimType, PRIORITY_LABELS, TYPE_LABELS, CRITICALITY_LABELS, AREA_LABELS } from "@/lib/constants"
+import { ArrowLeft, Paperclip, Upload, X } from "lucide-react"
+import { Input } from "@/components/ui/input"
 import { api } from "@/lib/api"
 import { useAuth } from "@/lib/auth-context"
 import type { Project } from "@/lib/types"
@@ -29,6 +30,8 @@ export default function NewClaimPage() {
     proyectoId: "",
     tipo: ClaimType.INCIDENT,
     prioridad: ClaimPriority.MEDIUM,
+    criticidad: ClaimCriticality.LOW,
+    areaInicial: ClaimArea.SUPPORT,
   })
 
   useEffect(() => {
@@ -71,23 +74,24 @@ export default function NewClaimPage() {
 
     setIsSubmitting(true)
     try {
+      // Cliente NO envía clienteId - el backend lo detecta automáticamente del token JWT
       const newClaim = await api.claims.create({
-        clienteId: user.clientId,
         proyectoId: formData.proyectoId,
         tipoProyectoId: selectedProject.tipoProyectoId,
         tipo: formData.tipo,
-        prioridad: formData.prioridad,
-        criticidad: ClaimCriticality.LOW, // Default for client-created claims
         descripcion: formData.descripcion,
-        areaActual: ClaimArea.SUPPORT, // Default area
-        creadoPorUsuarioId: user.id,
+        // Campos opcionales que el cliente puede enviar
+        prioridad: formData.prioridad,
+        criticidad: formData.criticidad,
+        areaInicial: formData.areaInicial,
       })
 
       toast({ title: "Reclamo enviado", description: `Tu reclamo ha sido recibido exitosamente.` })
       router.push("/home")
-    } catch (error) {
+    } catch (error: any) {
       console.error(error)
-      toast({ title: "Error", description: "Hubo un problema al enviar el reclamo.", variant: "destructive" })
+      const errorMsg = error.message || "Hubo un problema al enviar el reclamo."
+      toast({ title: "Error", description: errorMsg, variant: "destructive" })
     } finally {
       setIsSubmitting(false)
     }
@@ -148,19 +152,59 @@ export default function NewClaimPage() {
               </div>
             </div>
 
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="priority">Prioridad *</Label>
+                <Select
+                  value={formData.prioridad}
+                  onValueChange={(v) => setFormData({ ...formData, prioridad: v as ClaimPriority })}
+                >
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.values(ClaimPriority).map((p) => (
+                      <SelectItem key={p} value={p}>
+                        {PRIORITY_LABELS[p]}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="criticidad">Criticidad *</Label>
+                <Select
+                  value={formData.criticidad}
+                  onValueChange={(v) => setFormData({ ...formData, criticidad: v as ClaimCriticality })}
+                >
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.values(ClaimCriticality).map((c) => (
+                      <SelectItem key={c} value={c}>
+                        {CRITICALITY_LABELS[c]}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
             <div className="space-y-2">
-              <Label htmlFor="priority">Prioridad (Tu criterio)</Label>
+              <Label htmlFor="area">Área *</Label>
               <Select
-                value={formData.prioridad}
-                onValueChange={(v) => setFormData({ ...formData, prioridad: v as ClaimPriority })}
+                value={formData.areaInicial}
+                onValueChange={(v) => setFormData({ ...formData, areaInicial: v as ClaimArea })}
               >
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {Object.values(ClaimPriority).map((p) => (
-                    <SelectItem key={p} value={p}>
-                      {PRIORITY_LABELS[p]}
+                  {Object.values(ClaimArea).map((a) => (
+                    <SelectItem key={a} value={a}>
+                      {AREA_LABELS[a]}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -182,6 +226,37 @@ export default function NewClaimPage() {
               <p className="text-xs text-muted-foreground">
                 {formData.descripcion.length}/2000 caracteres
               </p>
+            </div>
+
+            {/* Archivos Adjuntos - Solo visual */}
+            <div className="space-y-2">
+              <Label htmlFor="attachments" className="flex items-center gap-2">
+                <Paperclip className="h-4 w-4" />
+                Archivos Adjuntos (opcional)
+              </Label>
+              <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-6 text-center hover:border-muted-foreground/50 transition-colors cursor-pointer">
+                <Input
+                  id="attachments"
+                  type="file"
+                  multiple
+                  className="hidden"
+                  accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.txt"
+                />
+                <label htmlFor="attachments" className="cursor-pointer">
+                  <Upload className="h-8 w-8 mx-auto text-muted-foreground mb-2" />
+                  <p className="text-sm font-medium">Arrastra archivos aquí o haz clic para seleccionar</p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Formatos permitidos: imágenes, PDF, Word, Excel (máx. 10MB por archivo)
+                  </p>
+                </label>
+              </div>
+              {/* Placeholder para archivos seleccionados */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 p-2 bg-muted rounded-md text-sm text-muted-foreground">
+                  <Paperclip className="h-4 w-4" />
+                  <span className="flex-1">No hay archivos seleccionados</span>
+                </div>
+              </div>
             </div>
           </CardContent>
           <CardFooter className="justify-end gap-2">

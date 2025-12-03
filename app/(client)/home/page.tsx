@@ -1,32 +1,53 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { PlusCircle } from "lucide-react"
+import { PlusCircle, Loader2, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { StatusBadge } from "@/components/claims/status-badge"
-import { ClaimStatus } from "@/lib/constants"
-
-// Mock Data for Client
-const MY_CLAIMS = [
-  {
-    id: "CLM-001",
-    project: "Website Redesign",
-    title: "Login error on mobile",
-    status: ClaimStatus.CREATED,
-    date: "2023-10-25",
-  },
-  {
-    id: "CLM-004",
-    project: "Website Redesign",
-    title: "Typo in footer",
-    status: ClaimStatus.RESOLVED,
-    date: "2023-10-20",
-  },
-]
+import { api } from "@/lib/api"
+import { useAuth } from "@/lib/auth-context"
+import type { Claim, PaginationMeta } from "@/lib/types"
+import { useToast } from "@/components/ui/use-toast"
 
 export default function ClientHome() {
+  const { user } = useAuth()
+  const { toast } = useToast()
+  const [claims, setClaims] = useState<Claim[]>([])
+  const [loading, setLoading] = useState(true)
+  const [pagination, setPagination] = useState<PaginationMeta>({
+    total: 0,
+    page: 1,
+    limit: 10,
+    totalPages: 0,
+    hasNextPage: false,
+    hasPreviousPage: false,
+  })
+
+  const loadClaims = async (page: number = 1) => {
+    if (!user?.clientId) {
+      setLoading(false)
+      return
+    }
+    try {
+      setLoading(true)
+      const response = await api.claims.listByClient(user.clientId, page, 10)
+      setClaims(response.data)
+      setPagination(response.meta)
+    } catch (error) {
+      console.error(error)
+      toast({ title: "Error", description: "No se pudieron cargar los reclamos", variant: "destructive" })
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    loadClaims(1)
+  }, [user])
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -48,43 +69,81 @@ export default function ClientHome() {
           <CardDescription>Lista de tus últimos reclamos registrados.</CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>ID</TableHead>
-                <TableHead>Proyecto</TableHead>
-                <TableHead>Título</TableHead>
-                <TableHead>Estado</TableHead>
-                <TableHead>Fecha</TableHead>
-                <TableHead className="text-right">Acción</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {MY_CLAIMS.map((claim) => (
-                <TableRow key={claim.id}>
-                  <TableCell className="font-medium">{claim.id}</TableCell>
-                  <TableCell>{claim.project}</TableCell>
-                  <TableCell>{claim.title}</TableCell>
-                  <TableCell>
-                    <StatusBadge status={claim.status} />
-                  </TableCell>
-                  <TableCell>{claim.date}</TableCell>
-                  <TableCell className="text-right">
-                    <Link href={`/my-claims/${claim.id}`} className="text-primary hover:underline text-sm font-medium">
-                      Ver Detalle
-                    </Link>
-                  </TableCell>
-                </TableRow>
-              ))}
-              {MY_CLAIMS.length === 0 && (
+          {loading ? (
+            <div className="flex items-center justify-center py-8">
+              <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+            </div>
+          ) : (
+            <Table>
+              <TableHeader>
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
-                    No tienes reclamos activos.
-                  </TableCell>
+                  <TableHead>Código</TableHead>
+                  <TableHead>Proyecto</TableHead>
+                  <TableHead>Descripción</TableHead>
+                  <TableHead>Estado</TableHead>
+                  <TableHead>Fecha</TableHead>
+                  <TableHead className="text-right">Acción</TableHead>
                 </TableRow>
-              )}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {claims.map((claim) => (
+                  <TableRow key={claim.id}>
+                    <TableCell className="font-medium">{claim.codigo || claim.id.slice(-8)}</TableCell>
+                    <TableCell>{claim.projectName}</TableCell>
+                    <TableCell className="max-w-[200px] truncate">{claim.description}</TableCell>
+                    <TableCell>
+                      <StatusBadge status={claim.status} />
+                    </TableCell>
+                    <TableCell>{new Date(claim.createdAt).toLocaleDateString()}</TableCell>
+                    <TableCell className="text-right">
+                      <Link href={`/my-claims/${claim.id}`} className="text-primary hover:underline text-sm font-medium">
+                        Ver Detalle
+                      </Link>
+                    </TableCell>
+                  </TableRow>
+                ))}
+                {claims.length === 0 && (
+                  <TableRow>
+                    <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
+                      No tienes reclamos registrados.
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          )}
+
+          {/* Paginación */}
+          {!loading && pagination.totalPages > 1 && (
+            <div className="flex items-center justify-between px-2 py-4 border-t">
+              <div className="text-sm text-muted-foreground">
+                Mostrando {claims.length} de {pagination.total} reclamos
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => loadClaims(pagination.page - 1)}
+                  disabled={!pagination.hasPreviousPage}
+                >
+                  <ChevronLeft className="h-4 w-4 mr-1" />
+                  Anterior
+                </Button>
+                <div className="text-sm font-medium">
+                  Página {pagination.page} de {pagination.totalPages}
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => loadClaims(pagination.page + 1)}
+                  disabled={!pagination.hasNextPage}
+                >
+                  Siguiente
+                  <ChevronRight className="h-4 w-4 ml-1" />
+                </Button>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>

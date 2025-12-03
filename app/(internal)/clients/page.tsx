@@ -110,9 +110,9 @@ export default function ClientsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>ID</TableHead>
                   <TableHead>Nombre</TableHead>
-                  <TableHead>Identificación</TableHead>
+                  <TableHead>Apellido</TableHead>
+                  <TableHead>DNI</TableHead>
                   <TableHead>Email</TableHead>
                   <TableHead>Teléfono</TableHead>
                   <TableHead className="text-right">Acciones</TableHead>
@@ -134,8 +134,8 @@ export default function ClientsPage() {
                 ) : (
                   filteredClients.map((client) => (
                     <TableRow key={client.id}>
-                      <TableCell className="font-medium">{client.id}</TableCell>
-                      <TableCell>{client.name}</TableCell>
+                      <TableCell className="font-medium">{client.name}</TableCell>
+                      <TableCell>{client.lastName}</TableCell>
                       <TableCell>{client.identification}</TableCell>
                       <TableCell>{client.email}</TableCell>
                       <TableCell>{client.phone}</TableCell>

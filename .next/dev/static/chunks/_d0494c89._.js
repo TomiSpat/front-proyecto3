@@ -34,6 +34,8 @@ __turbopack_context__.s([
     ()=>STATUS_LABELS,
     "SUB_AREAS",
     ()=>SUB_AREAS,
+    "TRANSITION_REQUIREMENTS",
+    ()=>TRANSITION_REQUIREMENTS,
     "TYPE_LABELS",
     ()=>TYPE_LABELS,
     "UserRole",
@@ -127,31 +129,71 @@ const STATUS_ALLOWED_ACTIONS = {
         canEdit: true,
         canComment: true,
         canReassign: true,
-        canResolve: false
+        canResolve: false,
+        allowedTransitions: [
+            "EN_PROCESO",
+            "CANCELADO"
+        ]
     },
     ["EN_PROCESO"]: {
         canEdit: true,
         canComment: true,
         canReassign: true,
-        canResolve: true
+        canResolve: false,
+        allowedTransitions: [
+            "EN_REVISION",
+            "PENDIENTE",
+            "CANCELADO"
+        ]
     },
     ["EN_REVISION"]: {
-        canEdit: true,
+        canEdit: false,
         canComment: true,
-        canReassign: true,
-        canResolve: true
+        canReassign: false,
+        canResolve: true,
+        allowedTransitions: [
+            "RESUELTO",
+            "EN_PROCESO",
+            "CANCELADO"
+        ]
     },
     ["RESUELTO"]: {
         canEdit: false,
         canComment: false,
         canReassign: false,
-        canResolve: false
+        canResolve: false,
+        allowedTransitions: [
+            "EN_PROCESO"
+        ] // Solo reabrir
     },
     ["CANCELADO"]: {
         canEdit: false,
         canComment: false,
         canReassign: false,
-        canResolve: false
+        canResolve: false,
+        allowedTransitions: [] // Estado final
+    }
+};
+const TRANSITION_REQUIREMENTS = {
+    ["PENDIENTE"]: {
+        description: "Reclamo pendiente de asignación"
+    },
+    ["EN_PROCESO"]: {
+        requiresResponsable: true,
+        requiresArea: true,
+        description: "Requiere responsable o área asignada"
+    },
+    ["EN_REVISION"]: {
+        requiresObservaciones: true,
+        description: "Requiere observaciones o resumen de resolución propuesta"
+    },
+    ["RESUELTO"]: {
+        requiresResolucion: true,
+        description: "Requiere resumen final de la resolución"
+    },
+    ["CANCELADO"]: {
+        requiresMotivo: true,
+        description: "Requiere motivo de cancelación"
     }
 };
 const STATUS_LABELS = {
@@ -197,10 +239,19 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/lib/types.ts [app-client] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
 
-__turbopack_context__.s([]);
+__turbopack_context__.s([
+    "TimelineEventType",
+    ()=>TimelineEventType
+]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/constants.ts [app-client] (ecmascript)");
 ;
 ;
+var TimelineEventType = /*#__PURE__*/ function(TimelineEventType) {
+    TimelineEventType["ESTADO"] = "ESTADO";
+    TimelineEventType["AREA"] = "AREA";
+    TimelineEventType["RESPONSABLE"] = "RESPONSABLE";
+    return TimelineEventType;
+}({});
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -278,7 +329,9 @@ function mapBackendUser(user) {
         name: `${user.nombre} ${user.apellido}`,
         email: user.email,
         role: user.rol,
-        area: user.areaAsignada
+        area: user.areaAsignada,
+        // clienteId puede venir como string o como objeto poblado
+        clientId: typeof user.clienteId === 'string' ? user.clienteId : user.clienteId?._id || undefined
     };
 }
 function mapBackendClient(client) {
@@ -289,7 +342,7 @@ function mapBackendClient(client) {
         identification: client.numDocumento,
         email: client.email,
         phone: client.numTelefono,
-        birthDate: client.fechaNacimiento,
+        birthDate: client.fechaNacimiento || '',
         createdAt: client.createdAt
     };
 }
@@ -302,6 +355,23 @@ function mapBackendTipoProyecto(tipo) {
     };
 }
 function mapBackendProject(project) {
+    // Si viene del mapper simplificado, usar esos campos directamente
+    if (project.clienteNombre && project.clienteApellido && project.tipoProyecto) {
+        return {
+            id: project._id,
+            name: project.nombre,
+            description: project.descripcion || '',
+            clientId: '',
+            clientName: `${project.clienteNombre} ${project.clienteApellido}`,
+            tipoProyectoId: '',
+            tipoProyectoName: project.tipoProyecto,
+            startDate: project.fechaInicio || '',
+            endDate: project.fechaFin || undefined,
+            isActive: !project.isDeleted,
+            createdAt: project.createdAt || ''
+        };
+    }
+    // Si viene con populate (formato completo)
     const clienteId = typeof project.clienteId === "object" ? project.clienteId._id : project.clienteId;
     const clienteName = typeof project.clienteId === "object" ? `${project.clienteId.nombre} ${project.clienteId.apellido}` : undefined;
     const tipoProyectoId = typeof project.tipoProyectoId === "object" ? project.tipoProyectoId._id : project.tipoProyectoId;
@@ -309,19 +379,48 @@ function mapBackendProject(project) {
     return {
         id: project._id,
         name: project.nombre,
-        description: project.descripcion,
-        clientId: clienteId,
-        clientName: clienteName,
-        tipoProyectoId: tipoProyectoId,
-        tipoProyectoName: tipoProyectoName,
-        startDate: project.fechaInicio,
-        endDate: project.fechaFin,
-        budget: project.presupuesto,
+        description: project.descripcion || '',
+        clientId: clienteId || '',
+        clientName: clienteName || 'N/A',
+        tipoProyectoId: tipoProyectoId || '',
+        tipoProyectoName: tipoProyectoName || 'N/A',
+        startDate: project.fechaInicio || '',
+        endDate: project.fechaFin || undefined,
         isActive: !project.isDeleted,
-        createdAt: project.createdAt
+        createdAt: project.createdAt || ''
     };
 }
 function mapBackendClaim(claim) {
+    // Si viene del mapper simplificado, usar esos campos directamente
+    if (claim.clienteNombre && claim.clienteApellido && claim.proyectoNombre) {
+        return {
+            id: claim._id,
+            codigo: claim.codigo,
+            description: claim.descripcion || '',
+            clientId: '',
+            clientName: `${claim.clienteNombre} ${claim.clienteApellido}`,
+            projectId: '',
+            projectName: claim.proyectoNombre,
+            tipoProyectoId: '',
+            type: claim.tipo,
+            status: claim.estadoActual,
+            priority: claim.prioridad,
+            criticality: claim.criticidad,
+            area: claim.areaActual,
+            assignedToId: '',
+            assignedToName: claim.responsableNombre && claim.responsableApellido ? `${claim.responsableNombre} ${claim.responsableApellido}`.trim() : claim.responsableNombre || 'Sin asignar',
+            createdByUserId: claim.creadoPorUsuarioId || '',
+            canModify: claim.puedeModificar || false,
+            canReassign: claim.puedeReasignar || false,
+            resolutionSummary: claim.resumenResolucion || undefined,
+            clientFeedback: claim.feedbackCliente || undefined,
+            resolutionDate: claim.fechaResolucion || undefined,
+            closedDate: claim.fechaCierre || undefined,
+            createdAt: claim.createdAt,
+            updatedAt: claim.updatedAt || ''
+        };
+    }
+    // Si viene con populate (formato completo)
     const clienteId = typeof claim.clienteId === "object" ? claim.clienteId._id : claim.clienteId;
     const clienteName = typeof claim.clienteId === "object" ? `${claim.clienteId.nombre} ${claim.clienteId.apellido}` : undefined;
     const proyectoId = typeof claim.proyectoId === "object" ? claim.proyectoId._id : claim.proyectoId;
@@ -332,40 +431,51 @@ function mapBackendClaim(claim) {
     return {
         id: claim._id,
         codigo: claim.codigo,
-        description: claim.descripcion,
-        clientId: clienteId,
-        clientName: clienteName,
-        projectId: proyectoId,
-        projectName: proyectoName,
-        tipoProyectoId: tipoProyectoId,
+        description: claim.descripcion || '',
+        clientId: clienteId || '',
+        clientName: clienteName || 'N/A',
+        projectId: proyectoId || '',
+        projectName: proyectoName || 'N/A',
+        tipoProyectoId: tipoProyectoId || '',
         type: claim.tipo,
         status: claim.estadoActual,
         priority: claim.prioridad,
         criticality: claim.criticidad,
         area: claim.areaActual,
-        assignedToId: responsableId,
-        assignedToName: responsableName,
-        createdByUserId: claim.creadoPorUsuarioId,
-        canModify: claim.puedeModificar,
-        canReassign: claim.puedeReasignar,
-        resolutionSummary: claim.resumenResolucion,
-        clientFeedback: claim.feedbackCliente,
-        resolutionDate: claim.fechaResolucion,
-        closedDate: claim.fechaCierre,
+        assignedToId: responsableId || '',
+        assignedToName: responsableName || 'Sin asignar',
+        createdByUserId: claim.creadoPorUsuarioId || '',
+        canModify: claim.puedeModificar || false,
+        canReassign: claim.puedeReasignar || false,
+        resolutionSummary: claim.resumenResolucion || undefined,
+        clientFeedback: claim.feedbackCliente || undefined,
+        resolutionDate: claim.fechaResolucion || undefined,
+        closedDate: claim.fechaCierre || undefined,
         createdAt: claim.createdAt,
-        updatedAt: claim.updatedAt
+        updatedAt: claim.updatedAt || ''
     };
 }
 function mapBackendTimelineEvent(event) {
     return {
         id: event._id,
         claimId: event.reclamoId,
-        fecha: event.fecha,
+        tipoCambio: event.tipoCambio,
+        fecha: event.fechaCambio || event.createdAt || '',
+        // Cambio de ESTADO
         estadoAnterior: event.estadoAnterior,
         estadoNuevo: event.estadoNuevo,
+        // Cambio de AREA
+        areaAnterior: event.areaAnterior,
+        areaNueva: event.areaNueva,
+        // Cambio de RESPONSABLE
+        responsableAnteriorId: event.responsableAnteriorId?._id,
+        responsableAnteriorNombre: event.responsableAnteriorId ? `${event.responsableAnteriorId.nombre} ${event.responsableAnteriorId.apellido}` : undefined,
+        responsableNuevoId: event.responsableNuevoId?._id,
+        responsableNuevoNombre: event.responsableNuevoId ? `${event.responsableNuevoId.nombre} ${event.responsableNuevoId.apellido}` : undefined,
+        // Campos comunes
         areaResponsable: event.areaResponsable,
-        usuarioId: event.usuarioId,
-        usuarioNombre: event.usuarioNombre,
+        usuarioId: event.usuarioResponsableId?._id,
+        usuarioNombre: event.usuarioResponsableId ? `${event.usuarioResponsableId.nombre} ${event.usuarioResponsableId.apellido}` : undefined,
         motivoCambio: event.motivoCambio,
         observaciones: event.observaciones
     };
@@ -438,6 +548,10 @@ const api = {
                 ...agents,
                 ...coordinators
             ].map(mapBackendUser);
+        },
+        listAgentsByArea: async (area)=>{
+            const agents = await apiFetch(`/usuario/agentes/area/${area}`);
+            return agents.map(mapBackendUser);
         },
         create: async (data)=>{
             const user = await apiFetch("/usuario", {
@@ -589,10 +703,27 @@ const api = {
     // RECLAMOS
     // ==========================================
     claims: {
-        list: async (filter)=>{
-            const params = filter ? `?${new URLSearchParams(filter)}` : "";
+        list: async (page = 1, limit = 10, filter)=>{
+            // El endpoint /reclamo ahora retorna un array simple (formato simplificado)
+            const filterParams = filter ? new URLSearchParams(filter).toString() : "";
+            const params = filterParams ? `?${filterParams}` : "";
             const claims = await apiFetch(`/reclamo${params}`);
-            return claims.map(mapBackendClaim);
+            // Simular paginación en el cliente
+            const total = claims.length;
+            const startIndex = (page - 1) * limit;
+            const endIndex = startIndex + limit;
+            const paginatedClaims = claims.slice(startIndex, endIndex);
+            return {
+                data: paginatedClaims.map(mapBackendClaim),
+                meta: {
+                    total,
+                    page,
+                    limit,
+                    totalPages: Math.ceil(total / limit),
+                    hasNextPage: endIndex < total,
+                    hasPreviousPage: page > 1
+                }
+            };
         },
         get: async (id)=>{
             try {
@@ -602,9 +733,12 @@ const api = {
                 return undefined;
             }
         },
-        listByClient: async (clientId)=>{
-            const claims = await apiFetch(`/reclamo/cliente/${clientId}`);
-            return claims.map(mapBackendClaim);
+        listByClient: async (clientId, page = 1, limit = 10)=>{
+            const response = await apiFetch(`/reclamo/cliente/${clientId}?page=${page}&limit=${limit}`);
+            return {
+                data: response.data.map(mapBackendClaim),
+                meta: response.meta
+            };
         },
         listByProject: async (projectId)=>{
             const claims = await apiFetch(`/reclamo/proyecto/${projectId}`);
@@ -639,6 +773,13 @@ const api = {
         },
         assignArea: async (id, data)=>{
             const claim = await apiFetch(`/reclamo/${id}/asignar-area`, {
+                method: "PATCH",
+                body: JSON.stringify(data)
+            });
+            return mapBackendClaim(claim);
+        },
+        assignResponsable: async (id, data)=>{
+            const claim = await apiFetch(`/reclamo/${id}/asignar-responsable`, {
                 method: "PATCH",
                 body: JSON.stringify(data)
             });
@@ -686,11 +827,39 @@ const api = {
         }
     },
     // ==========================================
-    // ESTADÍSTICAS (calculadas en frontend por ahora)
+    // ESTADÍSTICAS
     // ==========================================
     statistics: {
+        getResumen: async (fechaInicio, fechaFin)=>{
+            const params = new URLSearchParams();
+            if (fechaInicio) params.append('fechaInicio', fechaInicio);
+            if (fechaFin) params.append('fechaFin', fechaFin);
+            const queryString = params.toString() ? `?${params.toString()}` : '';
+            return await apiFetch(`/reporte/estadisticas/resumen${queryString}`);
+        },
+        getCargaTrabajo: async (fechaInicio, fechaFin, area)=>{
+            const params = new URLSearchParams();
+            if (fechaInicio) params.append('fechaInicio', fechaInicio);
+            if (fechaFin) params.append('fechaFin', fechaFin);
+            if (area) params.append('area', area);
+            const queryString = params.toString() ? `?${params.toString()}` : '';
+            return await apiFetch(`/reporte/estadisticas/carga-trabajo${queryString}`);
+        },
+        getTiempoResolucion: async ()=>{
+            return await apiFetch('/reporte/estadisticas/tiempo-resolucion');
+        },
+        getReclamosPorEstado: async (fechaInicio, fechaFin)=>{
+            const params = new URLSearchParams();
+            if (fechaInicio) params.append('fechaInicio', fechaInicio);
+            if (fechaFin) params.append('fechaFin', fechaFin);
+            const queryString = params.toString() ? `?${params.toString()}` : '';
+            return await apiFetch(`/reporte/estadisticas/por-estado${queryString}`);
+        },
         getOverview: async ()=>{
-            const claims = await api.claims.list();
+            // Obtener todos los reclamos (sin paginación para estadísticas)
+            const response = await api.claims.list(1, 1000) // Obtener hasta 1000 reclamos
+            ;
+            const claims = response.data;
             const users = await api.users.list();
             // Claims by status
             const claimsByStatus = Object.values(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"]).reduce((acc, status)=>{
@@ -781,6 +950,21 @@ const api = {
                 claimsPerAgent
             };
         }
+    },
+    // ==========================================
+    // NOTIFICACIONES (stub - no implementado en backend)
+    // ==========================================
+    notifications: {
+        listByUser: async (userId)=>{
+            // Backend no implementa notificaciones aún, retornar array vacío
+            return [];
+        },
+        markAsRead: async (notificationId)=>{
+        // Stub
+        },
+        markAllAsRead: async (userId)=>{
+        // Stub
+        }
     }
 };
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
@@ -854,7 +1038,7 @@ function AuthProvider({ children }) {
             if (loggedUser.role === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["UserRole"].CLIENT) {
                 router.push("/home");
             } else {
-                router.push("/dashboard");
+                router.push("/claims");
             }
         } catch (err) {
             console.error("Login failed", err);

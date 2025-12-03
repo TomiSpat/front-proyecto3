@@ -35,7 +35,7 @@ export default function NewInternalClaimPage() {
     tipo: ClaimType.INCIDENT,
     prioridad: ClaimPriority.MEDIUM,
     criticidad: ClaimCriticality.LOW,
-    areaActual: ClaimArea.SUPPORT,
+    areaInicial: ClaimArea.SUPPORT,
   })
 
   useEffect(() => {
@@ -94,8 +94,7 @@ export default function NewInternalClaimPage() {
         prioridad: formData.prioridad,
         criticidad: formData.criticidad,
         descripcion: formData.descripcion,
-        areaActual: formData.areaActual,
-        creadoPorUsuarioId: user.id,
+        areaInicial: formData.areaInicial,
       })
 
       toast({ title: "Reclamo creado", description: "El reclamo ha sido registrado exitosamente." })
@@ -183,7 +182,7 @@ export default function NewInternalClaimPage() {
 
               <div className="space-y-2">
                 <Label>Área Inicial</Label>
-                <Select value={formData.areaActual} onValueChange={(v) => setFormData({ ...formData, areaActual: v as ClaimArea })}>
+                <Select value={formData.areaInicial} onValueChange={(v) => setFormData({ ...formData, areaInicial: v as ClaimArea })}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>

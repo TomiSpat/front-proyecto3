@@ -7,13 +7,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { StatusBadge } from "@/components/claims/status-badge"
-import { StarRating } from "@/components/claims/star-rating"
 import { ClaimTimeline } from "@/components/claims/timeline"
-import { ClaimStatus, ClaimPriority, UserRole, ClaimArea, SUB_AREAS, STATUS_ALLOWED_ACTIONS } from "@/lib/constants"
-import { ArrowLeft, Save, AlertTriangle, Send, CheckCircle2, Paperclip } from "lucide-react"
+import { ClaimStatus, ClaimPriority, UserRole, ClaimArea, STATUS_ALLOWED_ACTIONS, STATUS_LABELS, TRANSITION_REQUIREMENTS, AREA_LABELS } from "@/lib/constants"
+import { ArrowLeft, Save, AlertTriangle, CheckCircle2 } from "lucide-react"
 import { useAuth } from "@/lib/auth-context"
 import { api } from "@/lib/api"
-import type { Claim, TimelineEvent, User, Attachment } from "@/lib/types"
+import type { Claim, TimelineEvent, User } from "@/lib/types"
 import { useToast } from "@/components/ui/use-toast"
 
 export default function ClaimDetailPage() {
@@ -25,48 +24,43 @@ export default function ClaimDetailPage() {
   const [claim, setClaim] = useState<Claim | null>(null)
   const [events, setEvents] = useState<TimelineEvent[]>([])
   const [agents, setAgents] = useState<User[]>([])
-  const [attachments, setAttachments] = useState<Attachment[]>([])
   const [loading, setLoading] = useState(true)
 
   // Edit State
-  const [status, setStatus] = useState<ClaimStatus | "">("")
   const [area, setArea] = useState<ClaimArea | "">("")
   const [assignedToId, setAssignedToId] = useState<string>("")
-  const [subArea, setSubArea] = useState<string>("")
-
-  // Comment State
-  const [newComment, setNewComment] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Resolution State
+  // State Change Form
+  const [selectedNewStatus, setSelectedNewStatus] = useState<ClaimStatus | "">("")
+  const [motivoCambio, setMotivoCambio] = useState("")
+  const [observaciones, setObservaciones] = useState("")
   const [resolutionSummary, setResolutionSummary] = useState("")
-  const [showResolutionForm, setShowResolutionForm] = useState(false)
+  const [showStateChangeForm, setShowStateChangeForm] = useState(false)
 
   useEffect(() => {
     const loadData = async () => {
       if (!id) return
       try {
         setLoading(true)
-        const [claimData, eventsData, agentsData, attachmentsData] = await Promise.all([
+        const [claimData, eventsData] = await Promise.all([
           api.claims.get(id as string),
           api.timeline.getByClaimId(id as string),
-          api.users.listAgents(),
-          api.claims.getAttachments(id as string),
         ])
 
         if (claimData) {
           setClaim(claimData)
-          setStatus(claimData.status)
-          setArea(claimData.area)
+          setArea(claimData.area || "")
           setAssignedToId(claimData.assignedToId || "Unassigned")
-          setSubArea(claimData.subArea || "")
-          if (claimData.resolution) {
-            setResolutionSummary(claimData.resolution.summary)
+          setResolutionSummary(claimData.resolutionSummary || "")
+          
+          // Cargar agentes del área si el reclamo ya tiene área asignada
+          if (claimData.area) {
+            const agentsData = await api.users.listAgentsByArea(claimData.area)
+            setAgents(agentsData)
           }
         }
         setEvents(eventsData)
-        setAgents(agentsData)
-        setAttachments(attachmentsData)
       } catch (error) {
         console.error(error)
         toast({ title: "Error", description: "No se pudo cargar el reclamo", variant: "destructive" })
@@ -77,82 +71,152 @@ export default function ClaimDetailPage() {
     loadData()
   }, [id, toast])
 
+  // Cargar agentes cuando cambia el área seleccionada
+  useEffect(() => {
+    const loadAgentsByArea = async () => {
+      if (!area) {
+        setAgents([])
+        setAssignedToId("Unassigned")
+        return
+      }
+      try {
+        const agentsData = await api.users.listAgentsByArea(area)
+        setAgents(agentsData)
+        // Si el responsable actual no pertenece al área nueva, resetear
+        if (assignedToId !== "Unassigned") {
+          const currentAgentInArea = agentsData.find(a => a.id === assignedToId)
+          if (!currentAgentInArea) {
+            setAssignedToId("Unassigned")
+          }
+        }
+      } catch (error) {
+        console.error("Error cargando agentes del área:", error)
+        setAgents([])
+      }
+    }
+    loadAgentsByArea()
+  }, [area])
+
   if (!user || loading) return <div className="p-8 text-center">Cargando detalles...</div>
   if (!claim) return <div className="p-8 text-center">Reclamo no encontrado</div>
 
   const canEdit = [UserRole.ADMIN, UserRole.COORDINATOR, UserRole.AGENT].includes(user.role)
   const statusActions = STATUS_ALLOWED_ACTIONS[claim.status]
-  const availableSubAreas = area ? SUB_AREAS[area as ClaimArea] || [] : []
 
-  const handleSave = async () => {
-    setIsSubmitting(true)
-    try {
-      const assignedAgent = agents.find((a) => a.id === assignedToId)
-
-      const updatedClaim = await api.claims.update(
-        claim.id,
-        {
-          status: status as ClaimStatus,
-          area: area as ClaimArea,
-          subArea,
-          assignedToId: assignedToId === "Unassigned" ? undefined : assignedToId,
-          assignedToName: assignedAgent?.name,
-        },
-        user.id,
-      )
-
-      setClaim(updatedClaim)
-      const newEvents = await api.timeline.getByClaimId(claim.id)
-      setEvents(newEvents)
-      toast({ title: "Guardado", description: "Los cambios se han guardado correctamente." })
-    } catch (error) {
-      toast({ title: "Error", description: "No se pudo guardar los cambios", variant: "destructive" })
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const handleAddComment = async () => {
-    if (!newComment.trim()) return
-    setIsSubmitting(true)
-    try {
-      await api.claims.addComment(claim.id, newComment, user.id)
-      setNewComment("")
-      const newEvents = await api.timeline.getByClaimId(claim.id)
-      setEvents(newEvents)
-      toast({ title: "Comentario agregado" })
-    } catch (error) {
-      toast({ title: "Error", description: "No se pudo agregar el comentario", variant: "destructive" })
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const handleResolve = async () => {
-    if (!resolutionSummary.trim()) {
-      toast({ title: "Error", description: "Debes ingresar un resumen de la resolución", variant: "destructive" })
+  // Cambiar estado usando el patrón State del backend
+  const handleChangeStatus = async () => {
+    if (!selectedNewStatus) {
+      toast({ title: "Error", description: "Selecciona un nuevo estado", variant: "destructive" })
       return
     }
+    
+    // Validar requisitos según el estado destino
+    if (selectedNewStatus === ClaimStatus.IN_PROCESS) {
+      if (!area && assignedToId === "Unassigned") {
+        toast({ title: "Error", description: "Para pasar a En Proceso, debe asignar un área o responsable", variant: "destructive" })
+        return
+      }
+    }
+    
+    if (selectedNewStatus === ClaimStatus.IN_REVIEW) {
+      if (!observaciones.trim() && !resolutionSummary.trim()) {
+        toast({ title: "Error", description: "Para pasar a En Revisión, debe proporcionar observaciones o resumen de resolución", variant: "destructive" })
+        return
+      }
+    }
+    
+    if (selectedNewStatus === ClaimStatus.RESOLVED) {
+      if (!resolutionSummary.trim() || resolutionSummary.length < 20) {
+        toast({ title: "Error", description: "El resumen de resolución debe tener al menos 20 caracteres", variant: "destructive" })
+        return
+      }
+    }
+    
+    if (selectedNewStatus === ClaimStatus.CANCELLED || 
+        (claim.status === ClaimStatus.RESOLVED && selectedNewStatus === ClaimStatus.IN_PROCESS)) {
+      if (!motivoCambio.trim() || motivoCambio.length < 10) {
+        toast({ title: "Error", description: "Debe proporcionar un motivo (mínimo 10 caracteres)", variant: "destructive" })
+        return
+      }
+    }
+
     setIsSubmitting(true)
     try {
-      const updatedClaim = await api.claims.resolve(
-        claim.id,
-        {
-          summary: resolutionSummary,
-          resolvedBy: user.id,
-          resolvedByName: user.name,
-          resolvedAt: new Date().toISOString(),
-        },
-        user.id,
-      )
+      const updatedClaim = await api.claimStatus.changeStatus(claim.id, {
+        nuevoEstado: selectedNewStatus,
+        motivoCambio: motivoCambio.trim() || undefined,
+        observaciones: observaciones.trim() || undefined,
+        areaResponsable: area as ClaimArea || undefined,
+        responsableId: assignedToId !== "Unassigned" ? assignedToId : undefined,
+        resumenResolucion: resolutionSummary.trim() || undefined,
+      })
+      
       setClaim(updatedClaim)
-      setStatus(updatedClaim.status)
-      setShowResolutionForm(false)
       const newEvents = await api.timeline.getByClaimId(claim.id)
       setEvents(newEvents)
-      toast({ title: "Reclamo Resuelto", description: "El cliente ha sido notificado." })
-    } catch (error) {
-      toast({ title: "Error", description: "No se pudo resolver el reclamo", variant: "destructive" })
+      
+      // Limpiar formulario
+      setSelectedNewStatus("")
+      setMotivoCambio("")
+      setObservaciones("")
+      setShowStateChangeForm(false)
+      
+      toast({ title: "Éxito", description: `Estado cambiado a ${STATUS_LABELS[selectedNewStatus]}` })
+    } catch (error: any) {
+      toast({ 
+        title: "Error", 
+        description: error.message || "No se pudo cambiar el estado", 
+        variant: "destructive" 
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  // Guardar cambios de asignación (sin cambiar estado)
+  const handleSaveAssignment = async () => {
+    if (!statusActions.canReassign) {
+      toast({ title: "Error", description: "No se puede reasignar en este estado", variant: "destructive" })
+      return
+    }
+    
+    setIsSubmitting(true)
+    try {
+      // Si el reclamo está pendiente y se asigna, cambiar a EN_PROCESO
+      if (claim.status === ClaimStatus.PENDING && (area || assignedToId !== "Unassigned")) {
+        const updatedClaim = await api.claimStatus.changeStatus(claim.id, {
+          nuevoEstado: ClaimStatus.IN_PROCESS,
+          areaResponsable: area as ClaimArea || undefined,
+          responsableId: assignedToId !== "Unassigned" ? assignedToId : undefined,
+          observaciones: "Asignado desde panel de gestión",
+        })
+        setClaim(updatedClaim)
+      } else {
+        // Actualizar área y/o responsable sin cambiar estado
+        let updatedClaim = claim
+        
+        // Si cambió el área, usar el endpoint de asignar área
+        if (area && area !== claim.area) {
+          updatedClaim = await api.claims.assignArea(claim.id, {
+            area: area as ClaimArea,
+            responsableId: assignedToId !== "Unassigned" ? assignedToId : undefined,
+          })
+        } 
+        // Si solo cambió el responsable, usar el endpoint de asignar responsable
+        else if (assignedToId !== "Unassigned" && assignedToId !== claim.assignedToId) {
+          updatedClaim = await api.claims.assignResponsable(claim.id, {
+            responsableId: assignedToId,
+          })
+        }
+        
+        setClaim(updatedClaim)
+      }
+      
+      const newEvents = await api.timeline.getByClaimId(claim.id)
+      setEvents(newEvents)
+      toast({ title: "Guardado", description: "Asignación actualizada correctamente" })
+    } catch (error: any) {
+      toast({ title: "Error", description: error.message || "No se pudo guardar", variant: "destructive" })
     } finally {
       setIsSubmitting(false)
     }
@@ -172,10 +236,15 @@ export default function ClaimDetailPage() {
           <p className="text-muted-foreground text-sm">Creado el {new Date(claim.createdAt).toLocaleDateString()}</p>
         </div>
         <div className="ml-auto flex gap-2">
-          {canEdit && statusActions.canEdit && (
-            <Button onClick={handleSave} disabled={isSubmitting}>
+          {canEdit && statusActions.canReassign && (
+            <Button onClick={handleSaveAssignment} disabled={isSubmitting} variant="outline">
               <Save className="mr-2 h-4 w-4" />
-              {isSubmitting ? "Guardando..." : "Guardar Cambios"}
+              {isSubmitting ? "Guardando..." : "Guardar Asignación"}
+            </Button>
+          )}
+          {canEdit && statusActions.allowedTransitions.length > 0 && (
+            <Button onClick={() => setShowStateChangeForm(!showStateChangeForm)} variant="default">
+              Cambiar Estado
             </Button>
           )}
         </div>
@@ -201,8 +270,8 @@ export default function ClaimDetailPage() {
               </div>
 
               <div>
-                <Label className="text-muted-foreground">Título</Label>
-                <div className="font-medium text-lg">{claim.title}</div>
+                <Label className="text-muted-foreground">Código</Label>
+                <div className="font-medium text-lg">{claim.codigo || claim.id}</div>
               </div>
 
               <div>
@@ -244,128 +313,180 @@ export default function ClaimDetailPage() {
             </CardContent>
           </Card>
 
-          {/* Attachments */}
-          {attachments.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Paperclip className="h-4 w-4" />
-                  Archivos Adjuntos ({attachments.length})
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid gap-2">
-                  {attachments.map((attachment) => (
-                    <div key={attachment.id} className="flex items-center gap-3 p-2 rounded border bg-muted/50">
-                      <Paperclip className="h-4 w-4 text-muted-foreground" />
-                      <div className="flex-1">
-                        <p className="text-sm font-medium">{attachment.fileName}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {(attachment.fileSize / 1024).toFixed(1)} KB -{" "}
-                          {new Date(attachment.uploadedAt).toLocaleDateString()}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
+          <ClaimTimeline events={events} currentUserRole={user.role} />
+        </div>
 
-          {/* Comments Section */}
-          {statusActions.canComment && (
-            <Card>
+        {/* Sidebar Controls */}
+        <div className="space-y-6">
+          {/* State Change Form - Visible when clicking "Cambiar Estado" */}
+          {showStateChangeForm && (
+            <Card className="border-primary">
               <CardHeader>
-                <CardTitle>Comentarios Internos</CardTitle>
-                <CardDescription>Solo visible para el equipo interno</CardDescription>
+                <CardTitle className="text-lg">Cambiar Estado</CardTitle>
+                <CardDescription>
+                  Estado actual: <strong>{STATUS_LABELS[claim.status]}</strong>
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex gap-2">
-                  <Textarea
-                    placeholder="Escribe un comentario interno..."
-                    value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
-                  />
-                  <Button
-                    className="self-end"
-                    size="icon"
-                    onClick={handleAddComment}
-                    disabled={!newComment.trim() || isSubmitting}
+                <div className="space-y-2">
+                  <Label>Nuevo Estado</Label>
+                  <Select
+                    value={selectedNewStatus}
+                    onValueChange={(val) => setSelectedNewStatus(val as ClaimStatus)}
                   >
-                    <Send className="h-4 w-4" />
+                    <SelectTrigger>
+                      <SelectValue placeholder="Seleccionar estado..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {statusActions.allowedTransitions.map((st) => (
+                        <SelectItem key={st} value={st}>
+                          {STATUS_LABELS[st]}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {selectedNewStatus && (
+                    <p className="text-xs text-muted-foreground">
+                      {TRANSITION_REQUIREMENTS[selectedNewStatus].description}
+                    </p>
+                  )}
+                </div>
+
+                {/* Campos condicionales según el estado destino */}
+                {(selectedNewStatus === ClaimStatus.IN_PROCESS || 
+                  selectedNewStatus === ClaimStatus.IN_REVIEW ||
+                  selectedNewStatus === ClaimStatus.RESOLVED) && (
+                  <div className="space-y-2">
+                    <Label>Área Responsable</Label>
+                    <Select value={area} onValueChange={(val) => setArea(val as ClaimArea)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Seleccionar área..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {Object.values(ClaimArea).map((ar) => (
+                          <SelectItem key={ar} value={ar}>
+                            {AREA_LABELS[ar]}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
+
+                {selectedNewStatus === ClaimStatus.IN_PROCESS && (
+                  <div className="space-y-2">
+                    <Label>Responsable</Label>
+                    <Select value={assignedToId} onValueChange={setAssignedToId}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Seleccionar..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Unassigned">-- Sin Asignar --</SelectItem>
+                        {agents.map((agent) => (
+                          <SelectItem key={agent.id} value={agent.id}>
+                            {agent.name} ({agent.area || "General"})
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
+
+                {(selectedNewStatus === ClaimStatus.CANCELLED || 
+                  (claim.status === ClaimStatus.RESOLVED && selectedNewStatus === ClaimStatus.IN_PROCESS)) && (
+                  <div className="space-y-2">
+                    <Label>Motivo del cambio *</Label>
+                    <Textarea
+                      placeholder="Explique el motivo (mínimo 10 caracteres)..."
+                      value={motivoCambio}
+                      onChange={(e) => setMotivoCambio(e.target.value)}
+                      className="min-h-[80px]"
+                    />
+                  </div>
+                )}
+
+                {(selectedNewStatus === ClaimStatus.IN_REVIEW || 
+                  selectedNewStatus === ClaimStatus.RESOLVED) && (
+                  <div className="space-y-2">
+                    <Label>
+                      {selectedNewStatus === ClaimStatus.RESOLVED 
+                        ? "Resumen de Resolución *" 
+                        : "Observaciones / Resolución propuesta"}
+                    </Label>
+                    <Textarea
+                      placeholder={selectedNewStatus === ClaimStatus.RESOLVED 
+                        ? "Descripción final de cómo se resolvió (mín. 20 caracteres)..." 
+                        : "Observaciones sobre el trabajo realizado..."}
+                      value={resolutionSummary}
+                      onChange={(e) => setResolutionSummary(e.target.value)}
+                      className="min-h-[100px]"
+                    />
+                  </div>
+                )}
+
+                {selectedNewStatus && selectedNewStatus !== ClaimStatus.CANCELLED && (
+                  <div className="space-y-2">
+                    <Label>Observaciones adicionales</Label>
+                    <Textarea
+                      placeholder="Observaciones opcionales..."
+                      value={observaciones}
+                      onChange={(e) => setObservaciones(e.target.value)}
+                    />
+                  </div>
+                )}
+
+                <div className="flex gap-2 pt-2">
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => {
+                      setShowStateChangeForm(false)
+                      setSelectedNewStatus("")
+                      setMotivoCambio("")
+                      setObservaciones("")
+                    }}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button
+                    className="flex-1"
+                    onClick={handleChangeStatus}
+                    disabled={isSubmitting || !selectedNewStatus}
+                  >
+                    {isSubmitting ? "Cambiando..." : "Confirmar Cambio"}
                   </Button>
                 </div>
               </CardContent>
             </Card>
           )}
 
-          <ClaimTimeline events={events} currentUserRole={user.role} />
-        </div>
-
-        {/* Sidebar Controls */}
-        <div className="space-y-6">
+          {/* Assignment Card */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-lg">Gestión</CardTitle>
+              <CardTitle className="text-lg">Asignación</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label>Estado del Reclamo</Label>
-                <Select
-                  disabled={!canEdit || !statusActions.canEdit}
-                  value={status}
-                  onValueChange={(val) => setStatus(val as ClaimStatus)}
-                >
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Object.values(ClaimStatus).map((st) => (
-                      <SelectItem key={st} value={st}>
-                        {st}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <Label>Estado Actual</Label>
+                <div className="p-2 bg-muted rounded text-sm font-medium">
+                  {STATUS_LABELS[claim.status]}
+                </div>
               </div>
 
               <div className="space-y-2">
-                <Label>Asignar Área</Label>
+                <Label>Área</Label>
                 <Select
                   disabled={!canEdit || !statusActions.canReassign}
                   value={area}
-                  onValueChange={(val) => {
-                    setArea(val as ClaimArea)
-                    setSubArea("")
-                  }}
+                  onValueChange={(val) => setArea(val as ClaimArea)}
                 >
                   <SelectTrigger>
-                    <SelectValue />
+                    <SelectValue placeholder="Sin asignar" />
                   </SelectTrigger>
                   <SelectContent>
                     {Object.values(ClaimArea).map((ar) => (
                       <SelectItem key={ar} value={ar}>
-                        {ar}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label>Sub-área (Interno)</Label>
-                <Select
-                  disabled={!canEdit || !statusActions.canEdit || availableSubAreas.length === 0}
-                  value={subArea}
-                  onValueChange={setSubArea}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Seleccionar sub-área" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {availableSubAreas.map((sa) => (
-                      <SelectItem key={sa} value={sa}>
-                        {sa}
+                        {AREA_LABELS[ar]}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -392,83 +513,43 @@ export default function ClaimDetailPage() {
                   </SelectContent>
                 </Select>
               </div>
-            </CardContent>
-          </Card>
 
-          {/* Resolution Card */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5" />
-                Resolución
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {claim.resolution ? (
-                <div className="space-y-3">
-                  <div className="p-3 bg-green-50 dark:bg-green-950 rounded border border-green-200 dark:border-green-800">
-                    <p className="text-sm text-green-900 dark:text-green-100">{claim.resolution.summary}</p>
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    <p>Resuelto por: {claim.resolution.resolvedByName}</p>
-                    <p>Fecha: {new Date(claim.resolution.resolvedAt).toLocaleString()}</p>
-                  </div>
-                </div>
-              ) : statusActions.canResolve ? (
-                showResolutionForm ? (
-                  <div className="space-y-3">
-                    <Textarea
-                      placeholder="Describe cómo se resolvió el problema..."
-                      value={resolutionSummary}
-                      onChange={(e) => setResolutionSummary(e.target.value)}
-                      className="min-h-[100px]"
-                    />
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        className="flex-1 bg-transparent"
-                        onClick={() => setShowResolutionForm(false)}
-                      >
-                        Cancelar
-                      </Button>
-                      <Button
-                        className="flex-1"
-                        onClick={handleResolve}
-                        disabled={isSubmitting || !resolutionSummary.trim()}
-                      >
-                        {isSubmitting ? "Resolviendo..." : "Resolver"}
-                      </Button>
-                    </div>
-                  </div>
-                ) : (
-                  <Button className="w-full" variant="secondary" onClick={() => setShowResolutionForm(true)}>
-                    Marcar como Resuelto
-                  </Button>
-                )
-              ) : (
-                <p className="text-sm text-muted-foreground text-center py-2">
-                  {claim.status === ClaimStatus.RESOLVED || claim.status === ClaimStatus.CLOSED
-                    ? "Este reclamo ya está cerrado"
-                    : "El reclamo debe estar En Proceso para resolverlo"}
+              {!statusActions.canReassign && (
+                <p className="text-xs text-muted-foreground">
+                  No se puede reasignar en estado {STATUS_LABELS[claim.status]}
                 </p>
               )}
             </CardContent>
           </Card>
 
-          {/* Client Feedback (if exists) */}
-          {claim.feedback && (
+          {/* Resolution Info Card */}
+          {claim.resolutionSummary && (
+            <Card className="border-green-200 bg-green-50 dark:bg-green-950 dark:border-green-800">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  Resolución
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm">{claim.resolutionSummary}</p>
+                {claim.resolutionDate && (
+                  <p className="text-xs text-muted-foreground">
+                    Fecha: {new Date(claim.resolutionDate).toLocaleString()}
+                  </p>
+                )}
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Client Feedback */}
+          {claim.clientFeedback && (
             <Card className="border-primary/20 bg-primary/5">
               <CardHeader>
                 <CardTitle className="text-sm">Feedback del Cliente</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <StarRating rating={claim.feedback.rating} readonly size="md" />
-                {claim.feedback.comment && (
-                  <p className="text-sm text-muted-foreground italic">"{claim.feedback.comment}"</p>
-                )}
-                <p className="text-xs text-muted-foreground">
-                  Recibido el {new Date(claim.feedback.submittedAt).toLocaleDateString()}
-                </p>
+              <CardContent>
+                <p className="text-sm text-muted-foreground italic">"{claim.clientFeedback}"</p>
               </CardContent>
             </Card>
           )}
