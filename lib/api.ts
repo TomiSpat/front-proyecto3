@@ -293,6 +293,7 @@ export const api = {
           email: response.user.email,
           role: response.user.rol as UserRole,
           area: response.user.areaAsignada as ClaimArea | undefined,
+          clientId: response.user.clienteId,
         },
         token: response.access_token,
       }
