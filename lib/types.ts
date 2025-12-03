@@ -289,5 +289,6 @@ export interface LoginResponse {
     email: string
     rol: string
     areaAsignada?: string
+    clienteId?: string
   }
 }

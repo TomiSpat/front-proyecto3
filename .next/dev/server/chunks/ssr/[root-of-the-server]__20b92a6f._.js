@@ -516,7 +516,8 @@ const api = {
                     name: `${response.user.nombre} ${response.user.apellido}`,
                     email: response.user.email,
                     role: response.user.rol,
-                    area: response.user.areaAsignada
+                    area: response.user.areaAsignada,
+                    clientId: response.user.clienteId
                 },
                 token: response.access_token
             };
