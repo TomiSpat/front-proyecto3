@@ -43,10 +43,9 @@ export default function ClaimDetailPage() {
       if (!id) return
       try {
         setLoading(true)
-        const [claimData, eventsData, agentsData] = await Promise.all([
+        const [claimData, eventsData] = await Promise.all([
           api.claims.get(id as string),
           api.timeline.getByClaimId(id as string),
-          api.users.listAgents(),
         ])
 
         if (claimData) {
@@ -54,9 +53,14 @@ export default function ClaimDetailPage() {
           setArea(claimData.area || "")
           setAssignedToId(claimData.assignedToId || "Unassigned")
           setResolutionSummary(claimData.resolutionSummary || "")
+          
+          // Cargar agentes del área si el reclamo ya tiene área asignada
+          if (claimData.area) {
+            const agentsData = await api.users.listAgentsByArea(claimData.area)
+            setAgents(agentsData)
+          }
         }
         setEvents(eventsData)
-        setAgents(agentsData)
       } catch (error) {
         console.error(error)
         toast({ title: "Error", description: "No se pudo cargar el reclamo", variant: "destructive" })
@@ -66,6 +70,32 @@ export default function ClaimDetailPage() {
     }
     loadData()
   }, [id, toast])
+
+  // Cargar agentes cuando cambia el área seleccionada
+  useEffect(() => {
+    const loadAgentsByArea = async () => {
+      if (!area) {
+        setAgents([])
+        setAssignedToId("Unassigned")
+        return
+      }
+      try {
+        const agentsData = await api.users.listAgentsByArea(area)
+        setAgents(agentsData)
+        // Si el responsable actual no pertenece al área nueva, resetear
+        if (assignedToId !== "Unassigned") {
+          const currentAgentInArea = agentsData.find(a => a.id === assignedToId)
+          if (!currentAgentInArea) {
+            setAssignedToId("Unassigned")
+          }
+        }
+      } catch (error) {
+        console.error("Error cargando agentes del área:", error)
+        setAgents([])
+      }
+    }
+    loadAgentsByArea()
+  }, [area])
 
   if (!user || loading) return <div className="p-8 text-center">Cargando detalles...</div>
   if (!claim) return <div className="p-8 text-center">Reclamo no encontrado</div>

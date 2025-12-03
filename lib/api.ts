@@ -188,7 +188,7 @@ function mapBackendTimelineEvent(event: BackendTimelineEvent): TimelineEvent {
     id: event._id,
     claimId: event.reclamoId,
     tipoCambio: event.tipoCambio as TimelineEventType,
-    fecha: event.fecha,
+    fecha: event.fechaCambio || event.createdAt || '',
     
     // Cambio de ESTADO
     estadoAnterior: event.estadoAnterior as ClaimStatus | undefined,
@@ -288,6 +288,11 @@ export const api = {
       const agents = await apiFetch<BackendUser[]>(`/usuario/rol/agente`)
       const coordinators = await apiFetch<BackendUser[]>(`/usuario/rol/coordinador`)
       return [...agents, ...coordinators].map(mapBackendUser)
+    },
+    
+    listAgentsByArea: async (area: string): Promise<User[]> => {
+      const agents = await apiFetch<BackendUser[]>(`/usuario/agentes/area/${area}`)
+      return agents.map(mapBackendUser)
     },
     
     create: async (data: {

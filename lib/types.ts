@@ -235,7 +235,8 @@ export interface BackendTimelineEvent {
   _id: string
   reclamoId: string
   tipoCambio: string // 'ESTADO', 'AREA', 'RESPONSABLE'
-  fecha: string
+  fechaCambio: string // El backend envía fechaCambio
+  createdAt?: string
   
   // Cambio de ESTADO
   estadoAnterior?: string

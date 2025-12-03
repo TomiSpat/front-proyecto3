@@ -285,16 +285,20 @@ __turbopack_context__.s([
     ()=>ClaimTimeline
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/lib/constants.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/lib/types.ts [app-ssr] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/circle.js [app-ssr] (ecmascript) <export default as Circle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-ssr] (ecmascript) <export default as CheckCircle2>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/circle-alert.js [app-ssr] (ecmascript) <export default as AlertCircle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/arrow-right.js [app-ssr] (ecmascript) <export default as ArrowRight>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$filter$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Filter$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/filter.js [app-ssr] (ecmascript) <export default as Filter>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/users.js [app-ssr] (ecmascript) <export default as Users>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-ssr] (ecmascript) <export default as MapPin>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/user.js [app-ssr] (ecmascript) <export default as User>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/calendar.js [app-ssr] (ecmascript) <export default as Calendar>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$square$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageSquare$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/message-square.js [app-ssr] (ecmascript) <export default as MessageSquare>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/lucide-react/dist/esm/icons/file-text.js [app-ssr] (ecmascript) <export default as FileText>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/date-fns/format.js [app-ssr] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$date$2d$fns$2f$locale$2f$es$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/node_modules/date-fns/locale/es.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/ui/card.tsx [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/ui/badge.tsx [app-ssr] (ecmascript)");
 "use client";
 ;
 ;
@@ -304,276 +308,593 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programac
 ;
 ;
 function ClaimTimeline({ events, currentUserRole }) {
-    // Filter state
-    const [activeFilters, setActiveFilters] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([
-        "ALL"
-    ]);
-    const toggleFilter = (type)=>{
-        if (type === "ALL") {
-            setActiveFilters([
-                "ALL"
-            ]);
-            return;
+    // Determinar el estilo del icono basado en el tipo de cambio
+    const getEventIcon = (event)=>{
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].ESTADO) {
+            if (event.estadoNuevo === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ClaimStatus"].RESOLVED) {
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
+                    className: "h-5 w-5 text-green-500"
+                }, void 0, false, {
+                    fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                    lineNumber: 21,
+                    columnNumber: 16
+                }, this);
+            }
+            if (event.estadoNuevo === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ClaimStatus"].CANCELLED) {
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
+                    className: "h-5 w-5 text-gray-400"
+                }, void 0, false, {
+                    fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                    lineNumber: 24,
+                    columnNumber: 16
+                }, this);
+            }
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
+                className: "h-5 w-5 text-blue-500"
+            }, void 0, false, {
+                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                lineNumber: 26,
+                columnNumber: 14
+            }, this);
         }
-        let newFilters = [
-            ...activeFilters
-        ];
-        if (newFilters.includes("ALL")) {
-            newFilters = [];
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].AREA) {
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                className: "h-5 w-5 text-purple-500"
+            }, void 0, false, {
+                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                lineNumber: 29,
+                columnNumber: 14
+            }, this);
         }
-        if (newFilters.includes(type)) {
-            newFilters = newFilters.filter((t)=>t !== type);
-        } else {
-            newFilters.push(type);
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].RESPONSABLE) {
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__["Users"], {
+                className: "h-5 w-5 text-orange-500"
+            }, void 0, false, {
+                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                lineNumber: 32,
+                columnNumber: 14
+            }, this);
         }
-        if (newFilters.length === 0) {
-            setActiveFilters([
-                "ALL"
-            ]);
-        } else {
-            setActiveFilters(newFilters);
-        }
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
+            className: "h-5 w-5 text-blue-500"
+        }, void 0, false, {
+            fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+            lineNumber: 34,
+            columnNumber: 12
+        }, this);
     };
-    // Filter internal events for clients
-    const baseEvents = currentUserRole === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UserRole"].CLIENT ? events.filter((e)=>[
-            "STATUS_CHANGE",
-            "CREATION",
-            "COMMENT",
-            "RESOLVED",
-            "CLOSED"
-        ].includes(e.type)) : events;
-    // Apply UI filters
-    const visibleEvents = baseEvents.filter((e)=>{
-        if (activeFilters.includes("ALL")) return true;
-        return activeFilters.includes(e.type);
-    });
-    const filterOptions = [
-        {
-            label: "Todos",
-            value: "ALL"
-        },
-        {
-            label: "Estados",
-            value: "STATUS_CHANGE"
-        },
-        {
-            label: "Áreas",
-            value: "AREA_CHANGE"
-        },
-        {
-            label: "Asignaciones",
-            value: "ASSIGNMENT_CHANGE"
-        }
-    ];
+    // Obtener el título del evento
+    const getEventTitle = (event)=>{
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].ESTADO) return "Cambio de Estado";
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].AREA) return "Cambio de Área";
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].RESPONSABLE) return "Cambio de Responsable";
+        return "Cambio";
+    };
+    // Formatear fecha de forma segura
+    const formatDate = (fecha)=>{
+        if (!fecha) return "";
+        const d = new Date(fecha);
+        return isNaN(d.getTime()) ? "" : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(d, "dd/MM/yyyy HH:mm", {
+            locale: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$date$2d$fns$2f$locale$2f$es$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["es"]
+        });
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardHeader"], {
                 className: "pb-3",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center justify-between",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardTitle"], {
-                                className: "text-lg",
-                                children: "Historial de Actividad"
-                            }, void 0, false, {
-                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                lineNumber: 67,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$filter$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Filter$3e$__["Filter"], {
-                                className: "h-4 w-4 text-muted-foreground"
-                            }, void 0, false, {
-                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                lineNumber: 68,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                        lineNumber: 66,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-wrap gap-2 mt-2",
-                        children: filterOptions.map((option)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
-                                variant: activeFilters.includes(option.value) ? "default" : "outline",
-                                className: "cursor-pointer",
-                                onClick: ()=>toggleFilter(option.value),
-                                children: option.label
-                            }, option.value, false, {
-                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                lineNumber: 73,
-                                columnNumber: 13
-                            }, this))
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardTitle"], {
+                        className: "text-lg",
+                        children: "Historial de Cambios"
                     }, void 0, false, {
                         fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                        lineNumber: 71,
+                        lineNumber: 55,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-sm text-muted-foreground",
+                        children: "Estados, áreas y responsables"
+                    }, void 0, false, {
+                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                        lineNumber: 56,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                lineNumber: 65,
+                lineNumber: 54,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "relative border-l border-muted ml-3 space-y-8 pb-4 mt-4",
+                    className: "relative border-l border-muted ml-3 space-y-6 pb-4 mt-4",
                     children: [
-                        visibleEvents.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        events.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-sm text-muted-foreground pl-4",
-                            children: "No hay eventos que coincidan con los filtros."
+                            children: "No hay historial de cambios."
                         }, void 0, false, {
                             fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                            lineNumber: 87,
+                            lineNumber: 61,
                             columnNumber: 13
                         }, this),
-                        visibleEvents.map((event, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        events.map((event)=>{
+                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "relative flex items-start pl-8",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute -left-[9px] top-0 bg-background",
-                                        children: event.type === "RESOLVED" || event.type === "CLOSED" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
-                                            className: "h-5 w-5 text-green-500"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                            lineNumber: 93,
-                                            columnNumber: 19
-                                        }, this) : event.type === "ESCALATED" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__["AlertCircle"], {
-                                            className: "h-5 w-5 text-orange-500"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                            lineNumber: 95,
-                                            columnNumber: 19
-                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
-                                            className: "h-5 w-5 text-muted-foreground"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                            lineNumber: 97,
-                                            columnNumber: 19
-                                        }, this)
+                                        children: getEventIcon(event)
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                        lineNumber: 91,
-                                        columnNumber: 15
+                                        lineNumber: 66,
+                                        columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex flex-col gap-1 w-full",
+                                        className: "flex flex-col gap-1.5 w-full",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex items-center justify-between",
+                                                className: "flex items-center justify-between flex-wrap gap-2",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "text-sm font-medium text-foreground",
-                                                        children: event.type === "STATUS_CHANGE" ? "Cambio de Estado" : event.type === "AREA_CHANGE" ? "Cambio de Área" : event.type === "ASSIGNMENT_CHANGE" ? "Reasignación" : event.type === "CREATION" ? "Reclamo Creado" : event.type === "RESOLVED" ? "Resuelto" : event.type === "CLOSED" ? "Cerrado" : "Comentario"
+                                                        className: "text-sm font-semibold text-foreground",
+                                                        children: getEventTitle(event)
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                                        lineNumber: 102,
-                                                        columnNumber: 19
+                                                        lineNumber: 72,
+                                                        columnNumber: 21
                                                     }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "text-xs text-muted-foreground",
-                                                        children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(new Date(event.timestamp), "dd/MM/yyyy HH:mm")
-                                                    }, void 0, false, {
+                                                    event.fecha && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-xs text-muted-foreground flex items-center gap-1",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
+                                                                className: "h-3 w-3"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 77,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            formatDate(event.fecha)
+                                                        ]
+                                                    }, void 0, true, {
                                                         fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                                        lineNumber: 117,
-                                                        columnNumber: 19
+                                                        lineNumber: 76,
+                                                        columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                                lineNumber: 101,
-                                                columnNumber: 17
+                                                lineNumber: 71,
+                                                columnNumber: 19
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-sm text-muted-foreground",
+                                            event.usuarioNombre && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center gap-1.5 text-sm text-muted-foreground",
                                                 children: [
-                                                    "Por ",
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "font-medium text-foreground",
-                                                        children: event.userName
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
+                                                        className: "h-3.5 w-3.5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                                        lineNumber: 123,
+                                                        lineNumber: 86,
                                                         columnNumber: 23
                                                     }, this),
-                                                    " (",
-                                                    event.userRole,
-                                                    ")"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                                lineNumber: 122,
-                                                columnNumber: 17
-                                            }, this),
-                                            (event.previousValue || event.newValue) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "mt-2 flex items-center gap-2 text-sm bg-muted/50 p-2 rounded-md w-fit",
-                                                children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "line-through text-muted-foreground",
-                                                        children: event.previousValue || "N/A"
-                                                    }, void 0, false, {
+                                                        children: [
+                                                            "Realizado por: ",
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "font-medium text-foreground",
+                                                                children: event.usuarioNombre
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 87,
+                                                                columnNumber: 44
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
                                                         fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                                        lineNumber: 129,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
-                                                        className: "h-3 w-3 text-muted-foreground"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                                        lineNumber: 130,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "font-medium",
-                                                        children: event.newValue
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                                        lineNumber: 131,
-                                                        columnNumber: 21
+                                                        lineNumber: 87,
+                                                        columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                                lineNumber: 128,
+                                                lineNumber: 85,
+                                                columnNumber: 21
+                                            }, this),
+                                            event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].ESTADO && (event.estadoAnterior || event.estadoNuevo) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-2 flex items-center gap-2 text-sm bg-blue-50 dark:bg-blue-950 p-2.5 rounded-md w-fit border border-blue-200 dark:border-blue-800",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: event.estadoAnterior ? "line-through text-muted-foreground" : "text-muted-foreground",
+                                                        children: event.estadoAnterior ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["STATUS_LABELS"][event.estadoAnterior] || event.estadoAnterior : "Sin estado"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                        lineNumber: 94,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                                        className: "h-4 w-4 text-blue-500"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                        lineNumber: 97,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "font-semibold text-blue-700 dark:text-blue-300",
+                                                        children: event.estadoNuevo ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["STATUS_LABELS"][event.estadoNuevo] || event.estadoNuevo : "N/A"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                        lineNumber: 98,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                lineNumber: 93,
+                                                columnNumber: 21
+                                            }, this),
+                                            event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].AREA && (event.areaAnterior || event.areaNueva) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-2 space-y-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2 text-sm bg-purple-50 dark:bg-purple-950 p-2.5 rounded-md w-fit border border-purple-200 dark:border-purple-800",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                                                                className: "h-4 w-4 text-purple-500"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 108,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: event.areaAnterior ? "line-through text-muted-foreground" : "text-muted-foreground",
+                                                                children: event.areaAnterior ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AREA_LABELS"][event.areaAnterior] || event.areaAnterior : "Sin área"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 109,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                                                className: "h-4 w-4 text-purple-500"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 112,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "font-semibold text-purple-700 dark:text-purple-300",
+                                                                children: event.areaNueva ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AREA_LABELS"][event.areaNueva] || event.areaNueva : "N/A"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 113,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                        lineNumber: 107,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    event.responsableNuevoNombre && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2 text-sm bg-orange-50 dark:bg-orange-950 p-2.5 rounded-md w-fit border border-orange-200 dark:border-orange-800",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
+                                                                className: "h-4 w-4 text-orange-500"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 120,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-muted-foreground",
+                                                                children: "Responsable:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 121,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "font-semibold text-orange-700 dark:text-orange-300",
+                                                                children: event.responsableNuevoNombre
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 122,
+                                                                columnNumber: 27
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                        lineNumber: 119,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                lineNumber: 106,
+                                                columnNumber: 21
+                                            }, this),
+                                            event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].RESPONSABLE && (event.responsableAnteriorNombre || event.responsableNuevoNombre) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-2 space-y-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2 text-sm bg-orange-50 dark:bg-orange-950 p-2.5 rounded-md w-fit border border-orange-200 dark:border-orange-800",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__["Users"], {
+                                                                className: "h-4 w-4 text-orange-500"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 134,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: event.responsableAnteriorNombre ? "line-through text-muted-foreground" : "text-muted-foreground",
+                                                                children: event.responsableAnteriorNombre || "Sin asignar"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 135,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                                                className: "h-4 w-4 text-orange-500"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 138,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "font-semibold text-orange-700 dark:text-orange-300",
+                                                                children: event.responsableNuevoNombre || "N/A"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 139,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                        lineNumber: 133,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    event.areaNueva && event.areaAnterior !== event.areaNueva && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2 text-sm bg-purple-50 dark:bg-purple-950 p-2.5 rounded-md w-fit border border-purple-200 dark:border-purple-800",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                                                                className: "h-4 w-4 text-purple-500"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 146,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "line-through text-muted-foreground",
+                                                                children: event.areaAnterior ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AREA_LABELS"][event.areaAnterior] || event.areaAnterior : "Sin área"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 147,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                                                className: "h-4 w-4 text-purple-500"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 150,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "font-semibold text-purple-700 dark:text-purple-300",
+                                                                children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AREA_LABELS"][event.areaNueva] || event.areaNueva
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 151,
+                                                                columnNumber: 27
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                        lineNumber: 145,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                lineNumber: 132,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-2 space-y-1.5",
+                                                children: [
+                                                    event.areaResponsable && event.tipoCambio !== __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].AREA && !(event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].RESPONSABLE && event.areaNueva) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-1.5 text-xs text-muted-foreground",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                                                                className: "h-3 w-3"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 166,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: [
+                                                                    "Área: ",
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "font-medium",
+                                                                        children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AREA_LABELS"][event.areaResponsable] || event.areaResponsable
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                        lineNumber: 167,
+                                                                        columnNumber: 37
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 167,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                        lineNumber: 165,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$types$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].ESTADO && event.responsableNuevoNombre && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-1.5 text-xs text-muted-foreground",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
+                                                                className: "h-3 w-3"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 174,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: [
+                                                                    "Responsable asignado: ",
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "font-medium",
+                                                                        children: event.responsableNuevoNombre
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                        lineNumber: 175,
+                                                                        columnNumber: 53
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                lineNumber: 175,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                        lineNumber: 173,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                lineNumber: 160,
                                                 columnNumber: 19
                                             }, this),
-                                            event.details && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "mt-1 text-sm text-foreground bg-slate-50 p-2 rounded border",
-                                                children: event.details
+                                            event.motivoCambio && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-2 text-sm bg-amber-50 dark:bg-amber-950 p-2.5 rounded-md border border-amber-200 dark:border-amber-800",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-start gap-2",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$square$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageSquare$3e$__["MessageSquare"], {
+                                                            className: "h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                            lineNumber: 184,
+                                                            columnNumber: 25
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "font-medium text-amber-800 dark:text-amber-200",
+                                                                    children: "Motivo:"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                    lineNumber: 186,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-amber-700 dark:text-amber-300",
+                                                                    children: event.motivoCambio
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                    lineNumber: 187,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                            lineNumber: 185,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                    lineNumber: 183,
+                                                    columnNumber: 23
+                                                }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                                lineNumber: 136,
-                                                columnNumber: 19
+                                                lineNumber: 182,
+                                                columnNumber: 21
+                                            }, this),
+                                            event.observaciones && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-2 text-sm bg-slate-50 dark:bg-slate-900 p-2.5 rounded-md border border-slate-200 dark:border-slate-700",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-start gap-2",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"], {
+                                                            className: "h-4 w-4 text-slate-500 mt-0.5 flex-shrink-0"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                            lineNumber: 197,
+                                                            columnNumber: 25
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "font-medium text-slate-700 dark:text-slate-300",
+                                                                    children: "Observaciones:"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                    lineNumber: 199,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-slate-600 dark:text-slate-400",
+                                                                    children: event.observaciones
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                                    lineNumber: 200,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                            lineNumber: 198,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                    lineNumber: 196,
+                                                    columnNumber: 23
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
+                                                lineNumber: 195,
+                                                columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                        lineNumber: 100,
-                                        columnNumber: 15
+                                        lineNumber: 69,
+                                        columnNumber: 17
                                     }, this)
                                 ]
                             }, event.id, true, {
                                 fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                                lineNumber: 90,
-                                columnNumber: 13
-                            }, this))
+                                lineNumber: 65,
+                                columnNumber: 15
+                            }, this);
+                        })
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                    lineNumber: 85,
+                    lineNumber: 59,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-                lineNumber: 84,
+                lineNumber: 58,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/components/claims/timeline.tsx",
-        lineNumber: 64,
+        lineNumber: 53,
         columnNumber: 5
     }, this);
 }

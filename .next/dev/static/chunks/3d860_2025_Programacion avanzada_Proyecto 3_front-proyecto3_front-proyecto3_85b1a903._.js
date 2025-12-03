@@ -34,6 +34,8 @@ __turbopack_context__.s([
     ()=>STATUS_LABELS,
     "SUB_AREAS",
     ()=>SUB_AREAS,
+    "TRANSITION_REQUIREMENTS",
+    ()=>TRANSITION_REQUIREMENTS,
     "TYPE_LABELS",
     ()=>TYPE_LABELS,
     "UserRole",
@@ -127,31 +129,71 @@ const STATUS_ALLOWED_ACTIONS = {
         canEdit: true,
         canComment: true,
         canReassign: true,
-        canResolve: false
+        canResolve: false,
+        allowedTransitions: [
+            "EN_PROCESO",
+            "CANCELADO"
+        ]
     },
     ["EN_PROCESO"]: {
         canEdit: true,
         canComment: true,
         canReassign: true,
-        canResolve: true
+        canResolve: false,
+        allowedTransitions: [
+            "EN_REVISION",
+            "PENDIENTE",
+            "CANCELADO"
+        ]
     },
     ["EN_REVISION"]: {
-        canEdit: true,
+        canEdit: false,
         canComment: true,
-        canReassign: true,
-        canResolve: true
+        canReassign: false,
+        canResolve: true,
+        allowedTransitions: [
+            "RESUELTO",
+            "EN_PROCESO",
+            "CANCELADO"
+        ]
     },
     ["RESUELTO"]: {
         canEdit: false,
         canComment: false,
         canReassign: false,
-        canResolve: false
+        canResolve: false,
+        allowedTransitions: [
+            "EN_PROCESO"
+        ] // Solo reabrir
     },
     ["CANCELADO"]: {
         canEdit: false,
         canComment: false,
         canReassign: false,
-        canResolve: false
+        canResolve: false,
+        allowedTransitions: [] // Estado final
+    }
+};
+const TRANSITION_REQUIREMENTS = {
+    ["PENDIENTE"]: {
+        description: "Reclamo pendiente de asignación"
+    },
+    ["EN_PROCESO"]: {
+        requiresResponsable: true,
+        requiresArea: true,
+        description: "Requiere responsable o área asignada"
+    },
+    ["EN_REVISION"]: {
+        requiresObservaciones: true,
+        description: "Requiere observaciones o resumen de resolución propuesta"
+    },
+    ["RESUELTO"]: {
+        requiresResolucion: true,
+        description: "Requiere resumen final de la resolución"
+    },
+    ["CANCELADO"]: {
+        requiresMotivo: true,
+        description: "Requiere motivo de cancelación"
     }
 };
 const STATUS_LABELS = {
@@ -197,10 +239,19 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/lib/types.ts [app-client] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
 
-__turbopack_context__.s([]);
+__turbopack_context__.s([
+    "TimelineEventType",
+    ()=>TimelineEventType
+]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$2025$2f$Programacion__avanzada$2f$Proyecto__3$2f$front$2d$proyecto3$2f$front$2d$proyecto3$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/2025/Programacion avanzada/Proyecto 3/front-proyecto3/front-proyecto3/lib/constants.ts [app-client] (ecmascript)");
 ;
 ;
+var TimelineEventType = /*#__PURE__*/ function(TimelineEventType) {
+    TimelineEventType["ESTADO"] = "ESTADO";
+    TimelineEventType["AREA"] = "AREA";
+    TimelineEventType["RESPONSABLE"] = "RESPONSABLE";
+    return TimelineEventType;
+}({});
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -359,12 +410,23 @@ function mapBackendTimelineEvent(event) {
     return {
         id: event._id,
         claimId: event.reclamoId,
-        fecha: event.fecha,
+        tipoCambio: event.tipoCambio,
+        fecha: event.fechaCambio || event.createdAt || '',
+        // Cambio de ESTADO
         estadoAnterior: event.estadoAnterior,
         estadoNuevo: event.estadoNuevo,
+        // Cambio de AREA
+        areaAnterior: event.areaAnterior,
+        areaNueva: event.areaNueva,
+        // Cambio de RESPONSABLE
+        responsableAnteriorId: event.responsableAnteriorId?._id,
+        responsableAnteriorNombre: event.responsableAnteriorId ? `${event.responsableAnteriorId.nombre} ${event.responsableAnteriorId.apellido}` : undefined,
+        responsableNuevoId: event.responsableNuevoId?._id,
+        responsableNuevoNombre: event.responsableNuevoId ? `${event.responsableNuevoId.nombre} ${event.responsableNuevoId.apellido}` : undefined,
+        // Campos comunes
         areaResponsable: event.areaResponsable,
-        usuarioId: event.usuarioId,
-        usuarioNombre: event.usuarioNombre,
+        usuarioId: event.usuarioResponsableId?._id,
+        usuarioNombre: event.usuarioResponsableId ? `${event.usuarioResponsableId.nombre} ${event.usuarioResponsableId.apellido}` : undefined,
         motivoCambio: event.motivoCambio,
         observaciones: event.observaciones
     };
@@ -437,6 +499,10 @@ const api = {
                 ...agents,
                 ...coordinators
             ].map(mapBackendUser);
+        },
+        listAgentsByArea: async (area)=>{
+            const agents = await apiFetch(`/usuario/agentes/area/${area}`);
+            return agents.map(mapBackendUser);
         },
         create: async (data)=>{
             const user = await apiFetch("/usuario", {
@@ -643,6 +709,13 @@ const api = {
             });
             return mapBackendClaim(claim);
         },
+        assignResponsable: async (id, data)=>{
+            const claim = await apiFetch(`/reclamo/${id}/asignar-responsable`, {
+                method: "PATCH",
+                body: JSON.stringify(data)
+            });
+            return mapBackendClaim(claim);
+        },
         delete: async (id)=>{
             await apiFetch(`/reclamo/${id}`, {
                 method: "DELETE"
@@ -779,6 +852,21 @@ const api = {
                 avgResolutionTimeByType,
                 claimsPerAgent
             };
+        }
+    },
+    // ==========================================
+    // NOTIFICACIONES (stub - no implementado en backend)
+    // ==========================================
+    notifications: {
+        listByUser: async (userId)=>{
+            // Backend no implementa notificaciones aún, retornar array vacío
+            return [];
+        },
+        markAsRead: async (notificationId)=>{
+        // Stub
+        },
+        markAllAsRead: async (userId)=>{
+        // Stub
         }
     }
 };
