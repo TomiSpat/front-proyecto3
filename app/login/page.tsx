@@ -76,7 +76,7 @@ export default function LoginPage() {
             </Button>
           </form>
 
-          <div className="mt-6 text-sm text-muted-foreground space-y-2">
+          {/* <div className="mt-6 text-sm text-muted-foreground space-y-2">
             <p className="font-semibold mb-2">Usuarios Demo (click para autocompletar):</p>
             <p className="text-xs mb-2 text-amber-600">Nota: Debes crear usuarios en el backend primero</p>
             <ul className="list-disc pl-5 space-y-1">
@@ -105,7 +105,7 @@ export default function LoginPage() {
                 Cliente: cliente@empresa.com
               </li>
             </ul>
-          </div>
+          </div> */}
         </CardContent>
       </Card>
     </div>
