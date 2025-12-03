@@ -618,7 +618,7 @@ function NewClaimPage() {
         tipo: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ClaimType"].INCIDENT,
         prioridad: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ClaimPriority"].MEDIUM,
         criticidad: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ClaimCriticality"].LOW,
-        areaActual: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ClaimArea"].SUPPORT
+        areaInicial: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ClaimArea"].SUPPORT
     });
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const loadProjects = async ()=>{
@@ -673,16 +673,16 @@ function NewClaimPage() {
         }
         setIsSubmitting(true);
         try {
+            // Cliente NO envía clienteId - el backend lo detecta automáticamente del token JWT
             const newClaim = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].claims.create({
-                clienteId: user.clientId,
                 proyectoId: formData.proyectoId,
                 tipoProyectoId: selectedProject.tipoProyectoId,
                 tipo: formData.tipo,
+                descripcion: formData.descripcion,
+                // Campos opcionales que el cliente puede enviar
                 prioridad: formData.prioridad,
                 criticidad: formData.criticidad,
-                descripcion: formData.descripcion,
-                areaActual: formData.areaActual,
-                creadoPorUsuarioId: user.id
+                areaInicial: formData.areaInicial
             });
             toast({
                 title: "Reclamo enviado",
@@ -691,9 +691,10 @@ function NewClaimPage() {
             router.push("/home");
         } catch (error) {
             console.error(error);
+            const errorMsg = error.message || "Hubo un problema al enviar el reclamo.";
             toast({
                 title: "Error",
-                description: "Hubo un problema al enviar el reclamo.",
+                description: errorMsg,
                 variant: "destructive"
             });
         } finally{
@@ -712,14 +713,14 @@ function NewClaimPage() {
                         className: "mr-2 h-4 w-4"
                     }, void 0, false, {
                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                        lineNumber: 102,
+                        lineNumber: 103,
                         columnNumber: 9
                     }, this),
                     "Volver"
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                lineNumber: 101,
+                lineNumber: 102,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -730,20 +731,20 @@ function NewClaimPage() {
                                 children: "Crear Nuevo Reclamo"
                             }, void 0, false, {
                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                lineNumber: 108,
+                                lineNumber: 109,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
                                 children: "Describe el problema detalladamente para ayudarte mejor."
                             }, void 0, false, {
                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                lineNumber: 109,
+                                lineNumber: 110,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                        lineNumber: 107,
+                        lineNumber: 108,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -763,7 +764,7 @@ function NewClaimPage() {
                                                         children: "Proyecto *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 115,
+                                                        lineNumber: 116,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -779,12 +780,12 @@ function NewClaimPage() {
                                                                     placeholder: "Selecciona proyecto"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                    lineNumber: 122,
+                                                                    lineNumber: 123,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 121,
+                                                                lineNumber: 122,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -793,24 +794,24 @@ function NewClaimPage() {
                                                                         children: p.name
                                                                     }, p.id, false, {
                                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                        lineNumber: 126,
+                                                                        lineNumber: 127,
                                                                         columnNumber: 23
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 124,
+                                                                lineNumber: 125,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 116,
+                                                        lineNumber: 117,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 114,
+                                                lineNumber: 115,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -821,7 +822,7 @@ function NewClaimPage() {
                                                         children: "Tipo de Reclamo *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 134,
+                                                        lineNumber: 135,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -835,12 +836,12 @@ function NewClaimPage() {
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                     fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                    lineNumber: 141,
+                                                                    lineNumber: 142,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 140,
+                                                                lineNumber: 141,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -849,30 +850,30 @@ function NewClaimPage() {
                                                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TYPE_LABELS"][type]
                                                                     }, type, false, {
                                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                        lineNumber: 145,
+                                                                        lineNumber: 146,
                                                                         columnNumber: 23
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 143,
+                                                                lineNumber: 144,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 135,
+                                                        lineNumber: 136,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 133,
+                                                lineNumber: 134,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                        lineNumber: 113,
+                                        lineNumber: 114,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -886,7 +887,7 @@ function NewClaimPage() {
                                                         children: "Prioridad *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 156,
+                                                        lineNumber: 157,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -899,12 +900,12 @@ function NewClaimPage() {
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                     fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                    lineNumber: 162,
+                                                                    lineNumber: 163,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 161,
+                                                                lineNumber: 162,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -913,24 +914,24 @@ function NewClaimPage() {
                                                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PRIORITY_LABELS"][p]
                                                                     }, p, false, {
                                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                        lineNumber: 166,
+                                                                        lineNumber: 167,
                                                                         columnNumber: 23
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 164,
+                                                                lineNumber: 165,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 157,
+                                                        lineNumber: 158,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 155,
+                                                lineNumber: 156,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -941,7 +942,7 @@ function NewClaimPage() {
                                                         children: "Criticidad *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 175,
+                                                        lineNumber: 176,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -954,12 +955,12 @@ function NewClaimPage() {
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                     fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                    lineNumber: 181,
+                                                                    lineNumber: 182,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 180,
+                                                                lineNumber: 181,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -968,30 +969,30 @@ function NewClaimPage() {
                                                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CRITICALITY_LABELS"][c]
                                                                     }, c, false, {
                                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                        lineNumber: 185,
+                                                                        lineNumber: 186,
                                                                         columnNumber: 23
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 183,
+                                                                lineNumber: 184,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 176,
+                                                        lineNumber: 177,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 174,
+                                                lineNumber: 175,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                        lineNumber: 154,
+                                        lineNumber: 155,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1002,25 +1003,25 @@ function NewClaimPage() {
                                                 children: "Área *"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 195,
+                                                lineNumber: 196,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
-                                                value: formData.areaActual,
+                                                value: formData.areaInicial,
                                                 onValueChange: (v)=>setFormData({
                                                         ...formData,
-                                                        areaActual: v
+                                                        areaInicial: v
                                                     }),
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                             fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                            lineNumber: 201,
+                                                            lineNumber: 202,
                                                             columnNumber: 19
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 200,
+                                                        lineNumber: 201,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1029,24 +1030,24 @@ function NewClaimPage() {
                                                                 children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AREA_LABELS"][a]
                                                             }, a, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 205,
+                                                                lineNumber: 206,
                                                                 columnNumber: 21
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 203,
+                                                        lineNumber: 204,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 196,
+                                                lineNumber: 197,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                        lineNumber: 194,
+                                        lineNumber: 195,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1057,7 +1058,7 @@ function NewClaimPage() {
                                                 children: "Descripción Detallada * (mínimo 20 caracteres)"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 214,
+                                                lineNumber: 215,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1074,7 +1075,7 @@ function NewClaimPage() {
                                                 maxLength: 2000
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 215,
+                                                lineNumber: 216,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1085,13 +1086,13 @@ function NewClaimPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 225,
+                                                lineNumber: 226,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                        lineNumber: 213,
+                                        lineNumber: 214,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1105,14 +1106,14 @@ function NewClaimPage() {
                                                         className: "h-4 w-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 233,
+                                                        lineNumber: 234,
                                                         columnNumber: 17
                                                     }, this),
                                                     "Archivos Adjuntos (opcional)"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 232,
+                                                lineNumber: 233,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1126,7 +1127,7 @@ function NewClaimPage() {
                                                         accept: "image/*,.pdf,.doc,.docx,.xls,.xlsx,.txt"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 237,
+                                                        lineNumber: 238,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1137,7 +1138,7 @@ function NewClaimPage() {
                                                                 className: "h-8 w-8 mx-auto text-muted-foreground mb-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 245,
+                                                                lineNumber: 246,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1145,7 +1146,7 @@ function NewClaimPage() {
                                                                 children: "Arrastra archivos aquí o haz clic para seleccionar"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 246,
+                                                                lineNumber: 247,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1153,19 +1154,19 @@ function NewClaimPage() {
                                                                 children: "Formatos permitidos: imágenes, PDF, Word, Excel (máx. 10MB por archivo)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                                lineNumber: 247,
+                                                                lineNumber: 248,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                        lineNumber: 244,
+                                                        lineNumber: 245,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 236,
+                                                lineNumber: 237,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1177,7 +1178,7 @@ function NewClaimPage() {
                                                             className: "h-4 w-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                            lineNumber: 255,
+                                                            lineNumber: 256,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1185,30 +1186,30 @@ function NewClaimPage() {
                                                             children: "No hay archivos seleccionados"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                            lineNumber: 256,
+                                                            lineNumber: 257,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                    lineNumber: 254,
+                                                    lineNumber: 255,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                                lineNumber: 253,
+                                                lineNumber: 254,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                        lineNumber: 231,
+                                        lineNumber: 232,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                lineNumber: 112,
+                                lineNumber: 113,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardFooter"], {
@@ -1221,7 +1222,7 @@ function NewClaimPage() {
                                         children: "Cancelar"
                                     }, void 0, false, {
                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                        lineNumber: 262,
+                                        lineNumber: 263,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1230,31 +1231,31 @@ function NewClaimPage() {
                                         children: isSubmitting ? "Enviando..." : "Enviar Reclamo"
                                     }, void 0, false, {
                                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                        lineNumber: 265,
+                                        lineNumber: 266,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                                lineNumber: 261,
+                                lineNumber: 262,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                        lineNumber: 111,
+                        lineNumber: 112,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-                lineNumber: 106,
+                lineNumber: 107,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/(client)/my-claims/new/page.tsx",
-        lineNumber: 100,
+        lineNumber: 101,
         columnNumber: 5
     }, this);
 }
