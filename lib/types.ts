@@ -59,12 +59,34 @@ export interface Attachment {
   uploadedBy: string
 }
 
+// Tipo de cambio en el historial
+export enum TimelineEventType {
+  ESTADO = 'ESTADO',
+  AREA = 'AREA',
+  RESPONSABLE = 'RESPONSABLE',
+}
+
 export interface TimelineEvent {
   id: string
   claimId: string
   fecha: string
+  tipoCambio: TimelineEventType
+  
+  // Campos para cambio de ESTADO
   estadoAnterior?: ClaimStatus
-  estadoNuevo: ClaimStatus
+  estadoNuevo?: ClaimStatus
+  
+  // Campos para cambio de AREA
+  areaAnterior?: ClaimArea
+  areaNueva?: ClaimArea
+  
+  // Campos para cambio de RESPONSABLE
+  responsableAnteriorId?: string
+  responsableAnteriorNombre?: string
+  responsableNuevoId?: string
+  responsableNuevoNombre?: string
+  
+  // Campos comunes
   areaResponsable?: ClaimArea
   usuarioId?: string
   usuarioNombre?: string
@@ -212,12 +234,24 @@ export interface BackendClaim {
 export interface BackendTimelineEvent {
   _id: string
   reclamoId: string
+  tipoCambio: string // 'ESTADO', 'AREA', 'RESPONSABLE'
   fecha: string
+  
+  // Cambio de ESTADO
   estadoAnterior?: string
-  estadoNuevo: string
+  estadoNuevo?: string
+  
+  // Cambio de AREA
+  areaAnterior?: string
+  areaNueva?: string
+  
+  // Cambio de RESPONSABLE
+  responsableAnteriorId?: { _id: string; nombre: string; apellido: string }
+  responsableNuevoId?: { _id: string; nombre: string; apellido: string }
+  
+  // Campos comunes
   areaResponsable?: string
-  usuarioId?: string
-  usuarioNombre?: string
+  usuarioResponsableId?: { _id: string; nombre: string; apellido: string }
   motivoCambio?: string
   observaciones?: string
 }

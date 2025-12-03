@@ -20,6 +20,7 @@ import {
   ClaimCriticality,
   ClaimArea,
   ClaimType,
+  TimelineEventType,
 } from "./types"
 
 // ==========================================
@@ -186,12 +187,27 @@ function mapBackendTimelineEvent(event: BackendTimelineEvent): TimelineEvent {
   return {
     id: event._id,
     claimId: event.reclamoId,
+    tipoCambio: event.tipoCambio as TimelineEventType,
     fecha: event.fecha,
+    
+    // Cambio de ESTADO
     estadoAnterior: event.estadoAnterior as ClaimStatus | undefined,
-    estadoNuevo: event.estadoNuevo as ClaimStatus,
+    estadoNuevo: event.estadoNuevo as ClaimStatus | undefined,
+    
+    // Cambio de AREA
+    areaAnterior: event.areaAnterior as ClaimArea | undefined,
+    areaNueva: event.areaNueva as ClaimArea | undefined,
+    
+    // Cambio de RESPONSABLE
+    responsableAnteriorId: event.responsableAnteriorId?._id,
+    responsableAnteriorNombre: event.responsableAnteriorId ? `${event.responsableAnteriorId.nombre} ${event.responsableAnteriorId.apellido}` : undefined,
+    responsableNuevoId: event.responsableNuevoId?._id,
+    responsableNuevoNombre: event.responsableNuevoId ? `${event.responsableNuevoId.nombre} ${event.responsableNuevoId.apellido}` : undefined,
+    
+    // Campos comunes
     areaResponsable: event.areaResponsable as ClaimArea | undefined,
-    usuarioId: event.usuarioId,
-    usuarioNombre: event.usuarioNombre,
+    usuarioId: event.usuarioResponsableId?._id,
+    usuarioNombre: event.usuarioResponsableId ? `${event.usuarioResponsableId.nombre} ${event.usuarioResponsableId.apellido}` : undefined,
     motivoCambio: event.motivoCambio,
     observaciones: event.observaciones,
   }
@@ -563,6 +579,16 @@ export const api = {
       responsableId?: string
     }): Promise<Claim> => {
       const claim = await apiFetch<BackendClaim>(`/reclamo/${id}/asignar-area`, {
+        method: "PATCH",
+        body: JSON.stringify(data),
+      })
+      return mapBackendClaim(claim)
+    },
+    
+    assignResponsable: async (id: string, data: {
+      responsableId: string
+    }): Promise<Claim> => {
+      const claim = await apiFetch<BackendClaim>(`/reclamo/${id}/asignar-responsable`, {
         method: "PATCH",
         body: JSON.stringify(data),
       })

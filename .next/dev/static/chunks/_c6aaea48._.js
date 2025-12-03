@@ -533,9 +533,12 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/constants.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/lib/types.ts [app-client] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle.js [app-client] (ecmascript) <export default as Circle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-client] (ecmascript) <export default as CheckCircle2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/arrow-right.js [app-client] (ecmascript) <export default as ArrowRight>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/users.js [app-client] (ecmascript) <export default as Users>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-client] (ecmascript) <export default as MapPin>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/date-fns/format.js [app-client] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/card.tsx [app-client] (ecmascript)");
 "use client";
@@ -544,13 +547,69 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$
 ;
 ;
 ;
+;
 function ClaimTimeline({ events, currentUserRole }) {
-    // Determinar el tipo de evento basado en los campos
-    const getEventType = (event)=>{
-        if (event.estadoNuevo === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].RESOLVED) return "RESOLVED";
-        if (event.estadoNuevo === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].CANCELLED) return "CANCELLED";
-        if (event.estadoAnterior && event.estadoNuevo) return "STATUS_CHANGE";
-        return "STATUS_CHANGE";
+    // Determinar el estilo del icono basado en el tipo de cambio
+    const getEventIcon = (event)=>{
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].ESTADO) {
+            if (event.estadoNuevo === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].RESOLVED) {
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
+                    className: "h-5 w-5 text-green-500"
+                }, void 0, false, {
+                    fileName: "[project]/components/claims/timeline.tsx",
+                    lineNumber: 20,
+                    columnNumber: 16
+                }, this);
+            }
+            if (event.estadoNuevo === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].CANCELLED) {
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
+                    className: "h-5 w-5 text-gray-400"
+                }, void 0, false, {
+                    fileName: "[project]/components/claims/timeline.tsx",
+                    lineNumber: 23,
+                    columnNumber: 16
+                }, this);
+            }
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
+                className: "h-5 w-5 text-blue-500"
+            }, void 0, false, {
+                fileName: "[project]/components/claims/timeline.tsx",
+                lineNumber: 25,
+                columnNumber: 14
+            }, this);
+        }
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].AREA) {
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                className: "h-5 w-5 text-purple-500"
+            }, void 0, false, {
+                fileName: "[project]/components/claims/timeline.tsx",
+                lineNumber: 28,
+                columnNumber: 14
+            }, this);
+        }
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].RESPONSABLE) {
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__["Users"], {
+                className: "h-5 w-5 text-orange-500"
+            }, void 0, false, {
+                fileName: "[project]/components/claims/timeline.tsx",
+                lineNumber: 31,
+                columnNumber: 14
+            }, this);
+        }
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
+            className: "h-5 w-5 text-blue-500"
+        }, void 0, false, {
+            fileName: "[project]/components/claims/timeline.tsx",
+            lineNumber: 33,
+            columnNumber: 12
+        }, this);
+    };
+    // Obtener el título del evento
+    const getEventTitle = (event)=>{
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].ESTADO) return "Cambio de Estado";
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].AREA) return "Cambio de Área";
+        if (event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].RESPONSABLE) return "Cambio de Responsable";
+        return "Cambio";
     };
     // Formatear fecha de forma segura
     const formatDate = (fecha)=>{
@@ -562,17 +621,27 @@ function ClaimTimeline({ events, currentUserRole }) {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
                 className: "pb-3",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
-                    className: "text-lg",
-                    children: "Historial de Cambios de Estado"
-                }, void 0, false, {
-                    fileName: "[project]/components/claims/timeline.tsx",
-                    lineNumber: 33,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
+                        className: "text-lg",
+                        children: "Historial de Cambios"
+                    }, void 0, false, {
+                        fileName: "[project]/components/claims/timeline.tsx",
+                        lineNumber: 54,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-sm text-muted-foreground",
+                        children: "Estados, áreas y responsables"
+                    }, void 0, false, {
+                        fileName: "[project]/components/claims/timeline.tsx",
+                        lineNumber: 55,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/components/claims/timeline.tsx",
-                lineNumber: 32,
+                lineNumber: 53,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -584,40 +653,19 @@ function ClaimTimeline({ events, currentUserRole }) {
                             children: "No hay historial de cambios."
                         }, void 0, false, {
                             fileName: "[project]/components/claims/timeline.tsx",
-                            lineNumber: 38,
+                            lineNumber: 60,
                             columnNumber: 13
                         }, this),
                         events.map((event)=>{
-                            const eventType = getEventType(event);
-                            const isResolved = eventType === "RESOLVED";
-                            const isCancelled = eventType === "CANCELLED";
                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "relative flex items-start pl-8",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute -left-[9px] top-0 bg-background",
-                                        children: isResolved ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
-                                            className: "h-5 w-5 text-green-500"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/claims/timeline.tsx",
-                                            lineNumber: 49,
-                                            columnNumber: 21
-                                        }, this) : isCancelled ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
-                                            className: "h-5 w-5 text-gray-400"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/claims/timeline.tsx",
-                                            lineNumber: 51,
-                                            columnNumber: 21
-                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"], {
-                                            className: "h-5 w-5 text-blue-500"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/claims/timeline.tsx",
-                                            lineNumber: 53,
-                                            columnNumber: 21
-                                        }, this)
+                                        children: getEventIcon(event)
                                     }, void 0, false, {
                                         fileName: "[project]/components/claims/timeline.tsx",
-                                        lineNumber: 47,
+                                        lineNumber: 65,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -628,10 +676,10 @@ function ClaimTimeline({ events, currentUserRole }) {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-sm font-medium text-foreground",
-                                                        children: "Cambio de Estado"
+                                                        children: getEventTitle(event)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/claims/timeline.tsx",
-                                                        lineNumber: 58,
+                                                        lineNumber: 70,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -639,13 +687,13 @@ function ClaimTimeline({ events, currentUserRole }) {
                                                         children: formatDate(event.fecha)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/claims/timeline.tsx",
-                                                        lineNumber: 61,
+                                                        lineNumber: 73,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/claims/timeline.tsx",
-                                                lineNumber: 57,
+                                                lineNumber: 69,
                                                 columnNumber: 19
                                             }, this),
                                             event.usuarioNombre && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -657,31 +705,31 @@ function ClaimTimeline({ events, currentUserRole }) {
                                                         children: event.usuarioNombre
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/claims/timeline.tsx",
-                                                        lineNumber: 68,
+                                                        lineNumber: 80,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/claims/timeline.tsx",
-                                                lineNumber: 67,
+                                                lineNumber: 79,
                                                 columnNumber: 21
                                             }, this),
-                                            (event.estadoAnterior || event.estadoNuevo) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "mt-2 flex items-center gap-2 text-sm bg-muted/50 p-2 rounded-md w-fit",
+                                            event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].ESTADO && (event.estadoAnterior || event.estadoNuevo) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-2 flex items-center gap-2 text-sm bg-blue-50 dark:bg-blue-950 p-2 rounded-md w-fit border border-blue-200 dark:border-blue-800",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "line-through text-muted-foreground",
                                                         children: event.estadoAnterior ? __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["STATUS_LABELS"][event.estadoAnterior] || event.estadoAnterior : "N/A"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/claims/timeline.tsx",
-                                                        lineNumber: 75,
+                                                        lineNumber: 87,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                                         className: "h-3 w-3 text-muted-foreground"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/claims/timeline.tsx",
-                                                        lineNumber: 78,
+                                                        lineNumber: 90,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -689,31 +737,95 @@ function ClaimTimeline({ events, currentUserRole }) {
                                                         children: event.estadoNuevo ? __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["STATUS_LABELS"][event.estadoNuevo] || event.estadoNuevo : "N/A"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/claims/timeline.tsx",
-                                                        lineNumber: 79,
+                                                        lineNumber: 91,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/claims/timeline.tsx",
-                                                lineNumber: 74,
+                                                lineNumber: 86,
                                                 columnNumber: 21
                                             }, this),
-                                            event.areaResponsable && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].AREA && (event.areaAnterior || event.areaNueva) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-2 flex items-center gap-2 text-sm bg-purple-50 dark:bg-purple-950 p-2 rounded-md w-fit border border-purple-200 dark:border-purple-800",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "line-through text-muted-foreground",
+                                                        children: event.areaAnterior ? __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AREA_LABELS"][event.areaAnterior] || event.areaAnterior : "Sin asignar"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/claims/timeline.tsx",
+                                                        lineNumber: 100,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                                        className: "h-3 w-3 text-muted-foreground"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/claims/timeline.tsx",
+                                                        lineNumber: 103,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "font-medium",
+                                                        children: event.areaNueva ? __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AREA_LABELS"][event.areaNueva] || event.areaNueva : "N/A"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/claims/timeline.tsx",
+                                                        lineNumber: 104,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/claims/timeline.tsx",
+                                                lineNumber: 99,
+                                                columnNumber: 21
+                                            }, this),
+                                            event.tipoCambio === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].RESPONSABLE && (event.responsableAnteriorNombre || event.responsableNuevoNombre) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-2 flex items-center gap-2 text-sm bg-orange-50 dark:bg-orange-950 p-2 rounded-md w-fit border border-orange-200 dark:border-orange-800",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "line-through text-muted-foreground",
+                                                        children: event.responsableAnteriorNombre || "Sin asignar"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/claims/timeline.tsx",
+                                                        lineNumber: 113,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                                        className: "h-3 w-3 text-muted-foreground"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/claims/timeline.tsx",
+                                                        lineNumber: 116,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "font-medium",
+                                                        children: event.responsableNuevoNombre || "N/A"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/claims/timeline.tsx",
+                                                        lineNumber: 117,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/claims/timeline.tsx",
+                                                lineNumber: 112,
+                                                columnNumber: 21
+                                            }, this),
+                                            event.areaResponsable && event.tipoCambio !== __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["TimelineEventType"].AREA && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "text-xs text-muted-foreground",
                                                 children: [
                                                     "Área: ",
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "font-medium",
-                                                        children: event.areaResponsable
+                                                        children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AREA_LABELS"][event.areaResponsable] || event.areaResponsable
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/claims/timeline.tsx",
-                                                        lineNumber: 88,
+                                                        lineNumber: 126,
                                                         columnNumber: 29
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/claims/timeline.tsx",
-                                                lineNumber: 87,
+                                                lineNumber: 125,
                                                 columnNumber: 21
                                             }, this),
                                             event.motivoCambio && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -724,7 +836,7 @@ function ClaimTimeline({ events, currentUserRole }) {
                                                         children: "Motivo:"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/claims/timeline.tsx",
-                                                        lineNumber: 95,
+                                                        lineNumber: 133,
                                                         columnNumber: 23
                                                     }, this),
                                                     " ",
@@ -732,7 +844,7 @@ function ClaimTimeline({ events, currentUserRole }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/claims/timeline.tsx",
-                                                lineNumber: 94,
+                                                lineNumber: 132,
                                                 columnNumber: 21
                                             }, this),
                                             event.observaciones && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -740,37 +852,37 @@ function ClaimTimeline({ events, currentUserRole }) {
                                                 children: event.observaciones
                                             }, void 0, false, {
                                                 fileName: "[project]/components/claims/timeline.tsx",
-                                                lineNumber: 101,
+                                                lineNumber: 139,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/claims/timeline.tsx",
-                                        lineNumber: 56,
+                                        lineNumber: 68,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, event.id, true, {
                                 fileName: "[project]/components/claims/timeline.tsx",
-                                lineNumber: 46,
+                                lineNumber: 64,
                                 columnNumber: 15
                             }, this);
                         })
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/claims/timeline.tsx",
-                    lineNumber: 36,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/claims/timeline.tsx",
-                lineNumber: 35,
+                lineNumber: 57,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/claims/timeline.tsx",
-        lineNumber: 31,
+        lineNumber: 52,
         columnNumber: 5
     }, this);
 }
@@ -1175,10 +1287,19 @@ function ClaimDetailPage() {
                 });
                 setClaim(updatedClaim);
             } else {
-                // Solo actualizar asignación sin cambiar estado
-                const updatedClaim = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].claims.update(claim.id, {
-                    responsableActualId: assignedToId !== "Unassigned" ? assignedToId : undefined
-                });
+                // Actualizar área y/o responsable sin cambiar estado
+                let updatedClaim = claim;
+                // Si cambió el área, usar el endpoint de asignar área
+                if (area && area !== claim.area) {
+                    updatedClaim = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].claims.assignArea(claim.id, {
+                        area: area,
+                        responsableId: assignedToId !== "Unassigned" ? assignedToId : undefined
+                    });
+                } else if (assignedToId !== "Unassigned" && assignedToId !== claim.assignedToId) {
+                    updatedClaim = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].claims.assignResponsable(claim.id, {
+                        responsableId: assignedToId
+                    });
+                }
                 setClaim(updatedClaim);
             }
             const newEvents = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].timeline.getByClaimId(claim.id);
@@ -1211,12 +1332,12 @@ function ClaimDetailPage() {
                             className: "h-4 w-4"
                         }, void 0, false, {
                             fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                            lineNumber: 186,
+                            lineNumber: 199,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                        lineNumber: 185,
+                        lineNumber: 198,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1230,13 +1351,13 @@ function ClaimDetailPage() {
                                         status: claim.status
                                     }, void 0, false, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 191,
+                                        lineNumber: 204,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                lineNumber: 189,
+                                lineNumber: 202,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1247,13 +1368,13 @@ function ClaimDetailPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                lineNumber: 193,
+                                lineNumber: 206,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                        lineNumber: 188,
+                        lineNumber: 201,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1268,14 +1389,14 @@ function ClaimDetailPage() {
                                         className: "mr-2 h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 198,
+                                        lineNumber: 211,
                                         columnNumber: 15
                                     }, this),
                                     isSubmitting ? "Guardando..." : "Guardar Asignación"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                lineNumber: 197,
+                                lineNumber: 210,
                                 columnNumber: 13
                             }, this),
                             canEdit && statusActions.allowedTransitions.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1284,19 +1405,19 @@ function ClaimDetailPage() {
                                 children: "Cambiar Estado"
                             }, void 0, false, {
                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                lineNumber: 203,
+                                lineNumber: 216,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                        lineNumber: 195,
+                        lineNumber: 208,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                lineNumber: 184,
+                lineNumber: 197,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1312,12 +1433,12 @@ function ClaimDetailPage() {
                                             children: "Detalle General"
                                         }, void 0, false, {
                                             fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                            lineNumber: 215,
+                                            lineNumber: 228,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 214,
+                                        lineNumber: 227,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1333,7 +1454,7 @@ function ClaimDetailPage() {
                                                                 children: "Cliente"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 220,
+                                                                lineNumber: 233,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1341,13 +1462,13 @@ function ClaimDetailPage() {
                                                                 children: claim.clientName
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 221,
+                                                                lineNumber: 234,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 219,
+                                                        lineNumber: 232,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1357,7 +1478,7 @@ function ClaimDetailPage() {
                                                                 children: "Proyecto"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 224,
+                                                                lineNumber: 237,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1365,19 +1486,19 @@ function ClaimDetailPage() {
                                                                 children: claim.projectName
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 225,
+                                                                lineNumber: 238,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 223,
+                                                        lineNumber: 236,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 218,
+                                                lineNumber: 231,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1387,7 +1508,7 @@ function ClaimDetailPage() {
                                                         children: "Código"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 230,
+                                                        lineNumber: 243,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1395,13 +1516,13 @@ function ClaimDetailPage() {
                                                         children: claim.codigo || claim.id
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 231,
+                                                        lineNumber: 244,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 229,
+                                                lineNumber: 242,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1411,7 +1532,7 @@ function ClaimDetailPage() {
                                                         children: "Descripción"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 235,
+                                                        lineNumber: 248,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1419,13 +1540,13 @@ function ClaimDetailPage() {
                                                         children: claim.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 236,
+                                                        lineNumber: 249,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 234,
+                                                lineNumber: 247,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1438,7 +1559,7 @@ function ClaimDetailPage() {
                                                                 children: "Tipo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 243,
+                                                                lineNumber: 256,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1446,13 +1567,13 @@ function ClaimDetailPage() {
                                                                 children: claim.type
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 244,
+                                                                lineNumber: 257,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 242,
+                                                        lineNumber: 255,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1462,7 +1583,7 @@ function ClaimDetailPage() {
                                                                 children: "Prioridad"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 247,
+                                                                lineNumber: 260,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1472,20 +1593,20 @@ function ClaimDetailPage() {
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                        lineNumber: 257,
+                                                                        lineNumber: 270,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     claim.priority
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 248,
+                                                                lineNumber: 261,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 246,
+                                                        lineNumber: 259,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1495,7 +1616,7 @@ function ClaimDetailPage() {
                                                                 children: "Criticidad"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 262,
+                                                                lineNumber: 275,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1503,13 +1624,13 @@ function ClaimDetailPage() {
                                                                 children: claim.criticality
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 263,
+                                                                lineNumber: 276,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 261,
+                                                        lineNumber: 274,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1519,7 +1640,7 @@ function ClaimDetailPage() {
                                                                 children: "Área Actual"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 266,
+                                                                lineNumber: 279,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1527,31 +1648,31 @@ function ClaimDetailPage() {
                                                                 children: claim.area
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 267,
+                                                                lineNumber: 280,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 265,
+                                                        lineNumber: 278,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 241,
+                                                lineNumber: 254,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 217,
+                                        lineNumber: 230,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                lineNumber: 213,
+                                lineNumber: 226,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$claims$2f$timeline$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimTimeline"], {
@@ -1559,13 +1680,13 @@ function ClaimDetailPage() {
                                 currentUserRole: user.role
                             }, void 0, false, {
                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                lineNumber: 273,
+                                lineNumber: 286,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                        lineNumber: 212,
+                        lineNumber: 225,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1581,7 +1702,7 @@ function ClaimDetailPage() {
                                                 children: "Cambiar Estado"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 282,
+                                                lineNumber: 295,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
@@ -1591,19 +1712,19 @@ function ClaimDetailPage() {
                                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["STATUS_LABELS"][claim.status]
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 284,
+                                                        lineNumber: 297,
                                                         columnNumber: 34
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 283,
+                                                lineNumber: 296,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 281,
+                                        lineNumber: 294,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1616,7 +1737,7 @@ function ClaimDetailPage() {
                                                         children: "Nuevo Estado"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 289,
+                                                        lineNumber: 302,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1628,12 +1749,12 @@ function ClaimDetailPage() {
                                                                     placeholder: "Seleccionar estado..."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                    lineNumber: 295,
+                                                                    lineNumber: 308,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 294,
+                                                                lineNumber: 307,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1642,18 +1763,18 @@ function ClaimDetailPage() {
                                                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["STATUS_LABELS"][st]
                                                                     }, st, false, {
                                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                        lineNumber: 299,
+                                                                        lineNumber: 312,
                                                                         columnNumber: 25
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 297,
+                                                                lineNumber: 310,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 290,
+                                                        lineNumber: 303,
                                                         columnNumber: 19
                                                     }, this),
                                                     selectedNewStatus && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1661,13 +1782,13 @@ function ClaimDetailPage() {
                                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TRANSITION_REQUIREMENTS"][selectedNewStatus].description
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 306,
+                                                        lineNumber: 319,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 288,
+                                                lineNumber: 301,
                                                 columnNumber: 17
                                             }, this),
                                             (selectedNewStatus === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].IN_PROCESS || selectedNewStatus === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].IN_REVIEW || selectedNewStatus === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].RESOLVED) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1677,7 +1798,7 @@ function ClaimDetailPage() {
                                                         children: "Área Responsable"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 317,
+                                                        lineNumber: 330,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1689,12 +1810,12 @@ function ClaimDetailPage() {
                                                                     placeholder: "Seleccionar área..."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                    lineNumber: 320,
+                                                                    lineNumber: 333,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 319,
+                                                                lineNumber: 332,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1703,24 +1824,24 @@ function ClaimDetailPage() {
                                                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AREA_LABELS"][ar]
                                                                     }, ar, false, {
                                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                        lineNumber: 324,
+                                                                        lineNumber: 337,
                                                                         columnNumber: 27
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 322,
+                                                                lineNumber: 335,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 318,
+                                                        lineNumber: 331,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 316,
+                                                lineNumber: 329,
                                                 columnNumber: 19
                                             }, this),
                                             selectedNewStatus === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].IN_PROCESS && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1730,7 +1851,7 @@ function ClaimDetailPage() {
                                                         children: "Responsable"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 335,
+                                                        lineNumber: 348,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1742,12 +1863,12 @@ function ClaimDetailPage() {
                                                                     placeholder: "Seleccionar..."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                    lineNumber: 338,
+                                                                    lineNumber: 351,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 337,
+                                                                lineNumber: 350,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1757,7 +1878,7 @@ function ClaimDetailPage() {
                                                                         children: "-- Sin Asignar --"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                        lineNumber: 341,
+                                                                        lineNumber: 354,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     agents.map((agent)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1770,25 +1891,25 @@ function ClaimDetailPage() {
                                                                             ]
                                                                         }, agent.id, true, {
                                                                             fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                            lineNumber: 343,
+                                                                            lineNumber: 356,
                                                                             columnNumber: 27
                                                                         }, this))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 340,
+                                                                lineNumber: 353,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 336,
+                                                        lineNumber: 349,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 334,
+                                                lineNumber: 347,
                                                 columnNumber: 19
                                             }, this),
                                             (selectedNewStatus === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].CANCELLED || claim.status === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].RESOLVED && selectedNewStatus === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].IN_PROCESS) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1798,7 +1919,7 @@ function ClaimDetailPage() {
                                                         children: "Motivo del cambio *"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 355,
+                                                        lineNumber: 368,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1808,13 +1929,13 @@ function ClaimDetailPage() {
                                                         className: "min-h-[80px]"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 356,
+                                                        lineNumber: 369,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 354,
+                                                lineNumber: 367,
                                                 columnNumber: 19
                                             }, this),
                                             (selectedNewStatus === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].IN_REVIEW || selectedNewStatus === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].RESOLVED) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1824,7 +1945,7 @@ function ClaimDetailPage() {
                                                         children: selectedNewStatus === __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].RESOLVED ? "Resumen de Resolución *" : "Observaciones / Resolución propuesta"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 368,
+                                                        lineNumber: 381,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1834,13 +1955,13 @@ function ClaimDetailPage() {
                                                         className: "min-h-[100px]"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 373,
+                                                        lineNumber: 386,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 367,
+                                                lineNumber: 380,
                                                 columnNumber: 19
                                             }, this),
                                             selectedNewStatus && selectedNewStatus !== __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ClaimStatus"].CANCELLED && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1850,7 +1971,7 @@ function ClaimDetailPage() {
                                                         children: "Observaciones adicionales"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 386,
+                                                        lineNumber: 399,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1859,13 +1980,13 @@ function ClaimDetailPage() {
                                                         onChange: (e)=>setObservaciones(e.target.value)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 387,
+                                                        lineNumber: 400,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 385,
+                                                lineNumber: 398,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1883,7 +2004,7 @@ function ClaimDetailPage() {
                                                         children: "Cancelar"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 396,
+                                                        lineNumber: 409,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1893,25 +2014,25 @@ function ClaimDetailPage() {
                                                         children: isSubmitting ? "Cambiando..." : "Confirmar Cambio"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 408,
+                                                        lineNumber: 421,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 395,
+                                                lineNumber: 408,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 287,
+                                        lineNumber: 300,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                lineNumber: 280,
+                                lineNumber: 293,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1922,12 +2043,12 @@ function ClaimDetailPage() {
                                             children: "Asignación"
                                         }, void 0, false, {
                                             fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                            lineNumber: 423,
+                                            lineNumber: 436,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 422,
+                                        lineNumber: 435,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1940,7 +2061,7 @@ function ClaimDetailPage() {
                                                         children: "Estado Actual"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 427,
+                                                        lineNumber: 440,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1948,13 +2069,13 @@ function ClaimDetailPage() {
                                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["STATUS_LABELS"][claim.status]
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 428,
+                                                        lineNumber: 441,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 426,
+                                                lineNumber: 439,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1964,7 +2085,7 @@ function ClaimDetailPage() {
                                                         children: "Área"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 434,
+                                                        lineNumber: 447,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1977,12 +2098,12 @@ function ClaimDetailPage() {
                                                                     placeholder: "Sin asignar"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                    lineNumber: 441,
+                                                                    lineNumber: 454,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 440,
+                                                                lineNumber: 453,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1991,24 +2112,24 @@ function ClaimDetailPage() {
                                                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AREA_LABELS"][ar]
                                                                     }, ar, false, {
                                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                        lineNumber: 445,
+                                                                        lineNumber: 458,
                                                                         columnNumber: 23
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 443,
+                                                                lineNumber: 456,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 435,
+                                                        lineNumber: 448,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 433,
+                                                lineNumber: 446,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2018,7 +2139,7 @@ function ClaimDetailPage() {
                                                         children: "Responsable"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 454,
+                                                        lineNumber: 467,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -2032,12 +2153,12 @@ function ClaimDetailPage() {
                                                                     placeholder: "Seleccionar..."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                    lineNumber: 461,
+                                                                    lineNumber: 474,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 460,
+                                                                lineNumber: 473,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -2047,7 +2168,7 @@ function ClaimDetailPage() {
                                                                         children: "-- Sin Asignar --"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                        lineNumber: 464,
+                                                                        lineNumber: 477,
                                                                         columnNumber: 21
                                                                     }, this),
                                                                     agents.map((agent)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -2060,25 +2181,25 @@ function ClaimDetailPage() {
                                                                             ]
                                                                         }, agent.id, true, {
                                                                             fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                            lineNumber: 466,
+                                                                            lineNumber: 479,
                                                                             columnNumber: 23
                                                                         }, this))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                                lineNumber: 463,
+                                                                lineNumber: 476,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                        lineNumber: 455,
+                                                        lineNumber: 468,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 453,
+                                                lineNumber: 466,
                                                 columnNumber: 15
                                             }, this),
                                             !statusActions.canReassign && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2089,19 +2210,19 @@ function ClaimDetailPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 475,
+                                                lineNumber: 488,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 425,
+                                        lineNumber: 438,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                lineNumber: 421,
+                                lineNumber: 434,
                                 columnNumber: 11
                             }, this),
                             claim.resolutionSummary && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -2115,19 +2236,19 @@ function ClaimDetailPage() {
                                                     className: "h-5 w-5 text-green-600"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                    lineNumber: 487,
+                                                    lineNumber: 500,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Resolución"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                            lineNumber: 486,
+                                            lineNumber: 499,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 485,
+                                        lineNumber: 498,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2138,7 +2259,7 @@ function ClaimDetailPage() {
                                                 children: claim.resolutionSummary
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 492,
+                                                lineNumber: 505,
                                                 columnNumber: 17
                                             }, this),
                                             claim.resolutionDate && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2149,19 +2270,19 @@ function ClaimDetailPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                                lineNumber: 494,
+                                                lineNumber: 507,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 491,
+                                        lineNumber: 504,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                lineNumber: 484,
+                                lineNumber: 497,
                                 columnNumber: 13
                             }, this),
                             claim.clientFeedback && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -2173,12 +2294,12 @@ function ClaimDetailPage() {
                                             children: "Feedback del Cliente"
                                         }, void 0, false, {
                                             fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                            lineNumber: 506,
+                                            lineNumber: 519,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 505,
+                                        lineNumber: 518,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2191,36 +2312,36 @@ function ClaimDetailPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                            lineNumber: 509,
+                                            lineNumber: 522,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                        lineNumber: 508,
+                                        lineNumber: 521,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                                lineNumber: 504,
+                                lineNumber: 517,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                        lineNumber: 277,
+                        lineNumber: 290,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-                lineNumber: 210,
+                lineNumber: 223,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/(internal)/claims/[id]/page.tsx",
-        lineNumber: 183,
+        lineNumber: 196,
         columnNumber: 5
     }, this);
 }

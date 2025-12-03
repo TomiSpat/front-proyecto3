@@ -1266,7 +1266,7 @@ function NewInternalClaimPage() {
         columnNumber: 5
     }, this);
 }
-_s(NewInternalClaimPage, "ouxmIceVGUHsUc3n00q4Qpnz7Ac=", false, function() {
+_s(NewInternalClaimPage, "D8FIyZUbH8DhXlHw5xxTo1KpOq0=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$auth$2d$context$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"],

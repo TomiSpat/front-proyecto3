@@ -162,10 +162,23 @@ export default function ClaimDetailPage() {
         })
         setClaim(updatedClaim)
       } else {
-        // Solo actualizar asignación sin cambiar estado
-        const updatedClaim = await api.claims.update(claim.id, {
-          responsableActualId: assignedToId !== "Unassigned" ? assignedToId : undefined,
-        })
+        // Actualizar área y/o responsable sin cambiar estado
+        let updatedClaim = claim
+        
+        // Si cambió el área, usar el endpoint de asignar área
+        if (area && area !== claim.area) {
+          updatedClaim = await api.claims.assignArea(claim.id, {
+            area: area as ClaimArea,
+            responsableId: assignedToId !== "Unassigned" ? assignedToId : undefined,
+          })
+        } 
+        // Si solo cambió el responsable, usar el endpoint de asignar responsable
+        else if (assignedToId !== "Unassigned" && assignedToId !== claim.assignedToId) {
+          updatedClaim = await api.claims.assignResponsable(claim.id, {
+            responsableId: assignedToId,
+          })
+        }
+        
         setClaim(updatedClaim)
       }
       

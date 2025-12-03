@@ -1,6 +1,8 @@
 {
+  "/(internal)/claims/[id]/page": "app/(internal)/claims/[id]/page.js",
   "/(internal)/claims/new/page": "app/(internal)/claims/new/page.js",
   "/(internal)/claims/page": "app/(internal)/claims/page.js",
   "/(internal)/dashboard/page": "app/(internal)/dashboard/page.js",
-  "/(internal)/projects/page": "app/(internal)/projects/page.js"
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js"
 }

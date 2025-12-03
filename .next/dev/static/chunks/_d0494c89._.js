@@ -239,10 +239,19 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/lib/types.ts [app-client] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
 
-__turbopack_context__.s([]);
+__turbopack_context__.s([
+    "TimelineEventType",
+    ()=>TimelineEventType
+]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/constants.ts [app-client] (ecmascript)");
 ;
 ;
+var TimelineEventType = /*#__PURE__*/ function(TimelineEventType) {
+    TimelineEventType["ESTADO"] = "ESTADO";
+    TimelineEventType["AREA"] = "AREA";
+    TimelineEventType["RESPONSABLE"] = "RESPONSABLE";
+    return TimelineEventType;
+}({});
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -358,7 +367,6 @@ function mapBackendProject(project) {
         tipoProyectoName: tipoProyectoName,
         startDate: project.fechaInicio,
         endDate: project.fechaFin,
-        budget: project.presupuesto,
         isActive: !project.isDeleted,
         createdAt: project.createdAt
     };
@@ -402,12 +410,23 @@ function mapBackendTimelineEvent(event) {
     return {
         id: event._id,
         claimId: event.reclamoId,
+        tipoCambio: event.tipoCambio,
         fecha: event.fecha,
+        // Cambio de ESTADO
         estadoAnterior: event.estadoAnterior,
         estadoNuevo: event.estadoNuevo,
+        // Cambio de AREA
+        areaAnterior: event.areaAnterior,
+        areaNueva: event.areaNueva,
+        // Cambio de RESPONSABLE
+        responsableAnteriorId: event.responsableAnteriorId?._id,
+        responsableAnteriorNombre: event.responsableAnteriorId ? `${event.responsableAnteriorId.nombre} ${event.responsableAnteriorId.apellido}` : undefined,
+        responsableNuevoId: event.responsableNuevoId?._id,
+        responsableNuevoNombre: event.responsableNuevoId ? `${event.responsableNuevoId.nombre} ${event.responsableNuevoId.apellido}` : undefined,
+        // Campos comunes
         areaResponsable: event.areaResponsable,
-        usuarioId: event.usuarioId,
-        usuarioNombre: event.usuarioNombre,
+        usuarioId: event.usuarioResponsableId?._id,
+        usuarioNombre: event.usuarioResponsableId ? `${event.usuarioResponsableId.nombre} ${event.usuarioResponsableId.apellido}` : undefined,
         motivoCambio: event.motivoCambio,
         observaciones: event.observaciones
     };
@@ -681,6 +700,13 @@ const api = {
         },
         assignArea: async (id, data)=>{
             const claim = await apiFetch(`/reclamo/${id}/asignar-area`, {
+                method: "PATCH",
+                body: JSON.stringify(data)
+            });
+            return mapBackendClaim(claim);
+        },
+        assignResponsable: async (id, data)=>{
+            const claim = await apiFetch(`/reclamo/${id}/asignar-responsable`, {
                 method: "PATCH",
                 body: JSON.stringify(data)
             });
