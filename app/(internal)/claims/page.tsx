@@ -8,9 +8,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ClaimStatus, PRIORITY_COLORS, STATUS_LABELS, PRIORITY_LABELS } from "@/lib/constants"
 import { StatusBadge } from "@/components/claims/status-badge"
 import { useRouter } from "next/navigation"
-import { Filter, Search, Plus } from "lucide-react"
+import { Filter, Search, Plus, ChevronLeft, ChevronRight } from "lucide-react"
 import { api } from "@/lib/api"
-import type { Claim } from "@/lib/types"
+import type { Claim, PaginationMeta } from "@/lib/types"
 import { format } from "date-fns"
 
 export default function ClaimsPage() {
@@ -19,19 +19,30 @@ export default function ClaimsPage() {
   const [loading, setLoading] = useState(true)
   const [filterStatus, setFilterStatus] = useState<string>("ALL")
   const [searchTerm, setSearchTerm] = useState("")
+  const [pagination, setPagination] = useState<PaginationMeta>({
+    total: 0,
+    page: 1,
+    limit: 10,
+    totalPages: 0,
+    hasNextPage: false,
+    hasPreviousPage: false,
+  })
+
+  const loadClaims = async (page: number = 1) => {
+    try {
+      setLoading(true)
+      const response = await api.claims.list(page, 10)
+      setClaims(response.data)
+      setPagination(response.meta)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    const loadClaims = async () => {
-      try {
-        const data = await api.claims.list()
-        setClaims(data)
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setLoading(false)
-      }
-    }
-    loadClaims()
+    loadClaims(1)
   }, [])
 
   const filteredClaims = claims.filter((claim) => {
@@ -104,26 +115,25 @@ export default function ClaimsPage() {
         <Table>
           <TableHeader className="bg-muted/50">
             <TableRow>
-              <TableHead>ID</TableHead>
-              <TableHead>Cliente / Proyecto</TableHead>
-              <TableHead>Descripción</TableHead>
+              <TableHead>Cliente</TableHead>
+              <TableHead>Proyecto</TableHead>
               <TableHead>Prioridad</TableHead>
               <TableHead>Estado</TableHead>
-              <TableHead>Asignado a</TableHead>
-              <TableHead>Fecha</TableHead>
+              <TableHead>Responsable</TableHead>
+              <TableHead>Fecha Creación</TableHead>
               <TableHead className="text-right">Acciones</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {loading ? (
               <TableRow>
-                <TableCell colSpan={8} className="text-center py-8 text-muted-foreground">
+                <TableCell colSpan={7} className="text-center py-8 text-muted-foreground">
                   Cargando reclamos...
                 </TableCell>
               </TableRow>
             ) : filteredClaims.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={8} className="text-center py-8 text-muted-foreground">
+                <TableCell colSpan={7} className="text-center py-8 text-muted-foreground">
                   No se encontraron reclamos.
                 </TableCell>
               </TableRow>
@@ -134,14 +144,8 @@ export default function ClaimsPage() {
                   className="cursor-pointer hover:bg-muted/50 transition-colors"
                   onClick={() => router.push(`/claims/${claim.id}`)}
                 >
-                  <TableCell className="font-medium">{claim.codigo || claim.id}</TableCell>
-                  <TableCell>
-                    <div className="flex flex-col">
-                      <span className="font-medium">{claim.clientName || "Sin cliente"}</span>
-                      <span className="text-xs text-muted-foreground">{claim.projectName || "Sin proyecto"}</span>
-                    </div>
-                  </TableCell>
-                  <TableCell className="max-w-[200px] truncate">{claim.description}</TableCell>
+                  <TableCell className="font-medium">{claim.clientName || "N/A"}</TableCell>
+                  <TableCell>{claim.projectName || "N/A"}</TableCell>
                   <TableCell>
                     <span className={PRIORITY_COLORS[claim.priority]}>{PRIORITY_LABELS[claim.priority]}</span>
                   </TableCell>
@@ -160,6 +164,38 @@ export default function ClaimsPage() {
             )}
           </TableBody>
         </Table>
+
+        {/* Paginación */}
+        {!loading && pagination.totalPages > 1 && (
+          <div className="flex items-center justify-between px-4 py-4 border-t">
+            <div className="text-sm text-muted-foreground">
+              Mostrando {filteredClaims.length} de {pagination.total} reclamos
+            </div>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => loadClaims(pagination.page - 1)}
+                disabled={!pagination.hasPreviousPage}
+              >
+                <ChevronLeft className="h-4 w-4 mr-1" />
+                Anterior
+              </Button>
+              <div className="text-sm font-medium">
+                Página {pagination.page} de {pagination.totalPages}
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => loadClaims(pagination.page + 1)}
+                disabled={!pagination.hasNextPage}
+              >
+                Siguiente
+                <ChevronRight className="h-4 w-4 ml-1" />
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

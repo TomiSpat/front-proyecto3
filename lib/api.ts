@@ -11,8 +11,9 @@ import {
   type BackendClient,
   type BackendProject,
   type BackendClaim,
-  type BackendTipoProyecto,
   type BackendTimelineEvent,
+  type BackendTipoProyecto,
+  type PaginatedResponse,
   type LoginResponse,
   UserRole,
   ClaimStatus,
@@ -94,6 +95,10 @@ function mapBackendUser(user: BackendUser): User {
     email: user.email,
     role: user.rol as UserRole,
     area: user.areaAsignada as ClaimArea | undefined,
+    // clienteId puede venir como string o como objeto poblado
+    clientId: typeof user.clienteId === 'string' 
+      ? user.clienteId 
+      : (user.clienteId as any)?._id || undefined,
   }
 }
 
@@ -105,7 +110,7 @@ function mapBackendClient(client: BackendClient): Client {
     identification: client.numDocumento,
     email: client.email,
     phone: client.numTelefono,
-    birthDate: client.fechaNacimiento,
+    birthDate: client.fechaNacimiento || '',
     createdAt: client.createdAt,
   }
 }
@@ -120,6 +125,24 @@ function mapBackendTipoProyecto(tipo: BackendTipoProyecto): TipoProyecto {
 }
 
 function mapBackendProject(project: BackendProject): Project {
+  // Si viene del mapper simplificado, usar esos campos directamente
+  if (project.clienteNombre && project.clienteApellido && project.tipoProyecto) {
+    return {
+      id: project._id,
+      name: project.nombre,
+      description: project.descripcion || '',
+      clientId: '',
+      clientName: `${project.clienteNombre} ${project.clienteApellido}`,
+      tipoProyectoId: '',
+      tipoProyectoName: project.tipoProyecto,
+      startDate: project.fechaInicio || '',
+      endDate: project.fechaFin || undefined,
+      isActive: !project.isDeleted,
+      createdAt: project.createdAt || '',
+    }
+  }
+  
+  // Si viene con populate (formato completo)
   const clienteId = typeof project.clienteId === "object" ? project.clienteId._id : project.clienteId
   const clienteName = typeof project.clienteId === "object" 
     ? `${project.clienteId.nombre} ${project.clienteId.apellido}` 
@@ -130,19 +153,52 @@ function mapBackendProject(project: BackendProject): Project {
   return {
     id: project._id,
     name: project.nombre,
-    description: project.descripcion,
-    clientId: clienteId,
-    clientName: clienteName,
-    tipoProyectoId: tipoProyectoId,
-    tipoProyectoName: tipoProyectoName,
-    startDate: project.fechaInicio,
-    endDate: project.fechaFin,
+    description: project.descripcion || '',
+    clientId: clienteId || '',
+    clientName: clienteName || 'N/A',
+    tipoProyectoId: tipoProyectoId || '',
+    tipoProyectoName: tipoProyectoName || 'N/A',
+    startDate: project.fechaInicio || '',
+    endDate: project.fechaFin || undefined,
     isActive: !project.isDeleted,
-    createdAt: project.createdAt,
+    createdAt: project.createdAt || '',
   }
 }
 
 function mapBackendClaim(claim: BackendClaim): Claim {
+  // Si viene del mapper simplificado, usar esos campos directamente
+  if (claim.clienteNombre && claim.clienteApellido && claim.proyectoNombre) {
+    return {
+      id: claim._id,
+      codigo: claim.codigo,
+      description: claim.descripcion || '',
+      clientId: '',
+      clientName: `${claim.clienteNombre} ${claim.clienteApellido}`,
+      projectId: '',
+      projectName: claim.proyectoNombre,
+      tipoProyectoId: '',
+      type: claim.tipo as ClaimType,
+      status: claim.estadoActual as ClaimStatus,
+      priority: claim.prioridad as ClaimPriority,
+      criticality: claim.criticidad as ClaimCriticality,
+      area: claim.areaActual as ClaimArea,
+      assignedToId: '',
+      assignedToName: claim.responsableNombre && claim.responsableApellido 
+        ? `${claim.responsableNombre} ${claim.responsableApellido}`.trim()
+        : claim.responsableNombre || 'Sin asignar',
+      createdByUserId: claim.creadoPorUsuarioId || '',
+      canModify: claim.puedeModificar || false,
+      canReassign: claim.puedeReasignar || false,
+      resolutionSummary: claim.resumenResolucion || undefined,
+      clientFeedback: claim.feedbackCliente || undefined,
+      resolutionDate: claim.fechaResolucion || undefined,
+      closedDate: claim.fechaCierre || undefined,
+      createdAt: claim.createdAt,
+      updatedAt: claim.updatedAt || '',
+    }
+  }
+  
+  // Si viene con populate (formato completo)
   const clienteId = typeof claim.clienteId === "object" ? claim.clienteId._id : claim.clienteId
   const clienteName = typeof claim.clienteId === "object" 
     ? `${claim.clienteId.nombre} ${claim.clienteId.apellido}` 
@@ -158,28 +214,28 @@ function mapBackendClaim(claim: BackendClaim): Claim {
   return {
     id: claim._id,
     codigo: claim.codigo,
-    description: claim.descripcion,
-    clientId: clienteId,
-    clientName: clienteName,
-    projectId: proyectoId,
-    projectName: proyectoName,
-    tipoProyectoId: tipoProyectoId,
+    description: claim.descripcion || '',
+    clientId: clienteId || '',
+    clientName: clienteName || 'N/A',
+    projectId: proyectoId || '',
+    projectName: proyectoName || 'N/A',
+    tipoProyectoId: tipoProyectoId || '',
     type: claim.tipo as ClaimType,
     status: claim.estadoActual as ClaimStatus,
     priority: claim.prioridad as ClaimPriority,
     criticality: claim.criticidad as ClaimCriticality,
     area: claim.areaActual as ClaimArea,
-    assignedToId: responsableId,
-    assignedToName: responsableName,
-    createdByUserId: claim.creadoPorUsuarioId,
-    canModify: claim.puedeModificar,
-    canReassign: claim.puedeReasignar,
-    resolutionSummary: claim.resumenResolucion,
-    clientFeedback: claim.feedbackCliente,
-    resolutionDate: claim.fechaResolucion,
-    closedDate: claim.fechaCierre,
+    assignedToId: responsableId || '',
+    assignedToName: responsableName || 'Sin asignar',
+    createdByUserId: claim.creadoPorUsuarioId || '',
+    canModify: claim.puedeModificar || false,
+    canReassign: claim.puedeReasignar || false,
+    resolutionSummary: claim.resumenResolucion || undefined,
+    clientFeedback: claim.feedbackCliente || undefined,
+    resolutionDate: claim.fechaResolucion || undefined,
+    closedDate: claim.fechaCierre || undefined,
     createdAt: claim.createdAt,
-    updatedAt: claim.updatedAt,
+    updatedAt: claim.updatedAt || '',
   }
 }
 
@@ -501,10 +557,30 @@ export const api = {
   // RECLAMOS
   // ==========================================
   claims: {
-    list: async (filter?: Record<string, string>): Promise<Claim[]> => {
-      const params = filter ? `?${new URLSearchParams(filter)}` : ""
+    list: async (page: number = 1, limit: number = 10, filter?: Record<string, any>): Promise<PaginatedResponse<Claim>> => {
+      // El endpoint /reclamo ahora retorna un array simple (formato simplificado)
+      const filterParams = filter ? new URLSearchParams(filter).toString() : ""
+      const params = filterParams ? `?${filterParams}` : ""
+      
       const claims = await apiFetch<BackendClaim[]>(`/reclamo${params}`)
-      return claims.map(mapBackendClaim)
+      
+      // Simular paginación en el cliente
+      const total = claims.length
+      const startIndex = (page - 1) * limit
+      const endIndex = startIndex + limit
+      const paginatedClaims = claims.slice(startIndex, endIndex)
+      
+      return {
+        data: paginatedClaims.map(mapBackendClaim),
+        meta: {
+          total,
+          page,
+          limit,
+          totalPages: Math.ceil(total / limit),
+          hasNextPage: endIndex < total,
+          hasPreviousPage: page > 1,
+        },
+      }
     },
     
     get: async (id: string): Promise<Claim | undefined> => {
@@ -516,9 +592,23 @@ export const api = {
       }
     },
     
-    listByClient: async (clientId: string): Promise<Claim[]> => {
-      const claims = await apiFetch<BackendClaim[]>(`/reclamo/cliente/${clientId}`)
-      return claims.map(mapBackendClaim)
+    listByClient: async (clientId: string, page: number = 1, limit: number = 10): Promise<PaginatedResponse<Claim>> => {
+      const response = await apiFetch<{
+        data: BackendClaim[]
+        meta: {
+          total: number
+          page: number
+          limit: number
+          totalPages: number
+          hasNextPage: boolean
+          hasPreviousPage: boolean
+        }
+      }>(`/reclamo/cliente/${clientId}?page=${page}&limit=${limit}`)
+      
+      return {
+        data: response.data.map(mapBackendClaim),
+        meta: response.meta,
+      }
     },
     
     listByProject: async (projectId: string): Promise<Claim[]> => {
@@ -543,12 +633,12 @@ export const api = {
     },
     
     create: async (data: {
-      clienteId: string
+      clienteId?: string // Opcional - el backend lo detecta del JWT para clientes
       proyectoId: string
       tipoProyectoId: string
       tipo: ClaimType
-      prioridad: ClaimPriority
-      criticidad: ClaimCriticality
+      prioridad?: ClaimPriority // Opcional para clientes
+      criticidad?: ClaimCriticality // Opcional para clientes
       descripcion: string
       areaInicial?: ClaimArea
       responsableId?: string
@@ -654,11 +744,59 @@ export const api = {
   },
 
   // ==========================================
-  // ESTADÍSTICAS (calculadas en frontend por ahora)
+  // ESTADÍSTICAS
   // ==========================================
   statistics: {
+    getResumen: async (fechaInicio?: string, fechaFin?: string): Promise<{
+      totalReclamos: number
+      tasaResolucion: number
+      tasaCancelacion: number
+    }> => {
+      const params = new URLSearchParams()
+      if (fechaInicio) params.append('fechaInicio', fechaInicio)
+      if (fechaFin) params.append('fechaFin', fechaFin)
+      const queryString = params.toString() ? `?${params.toString()}` : ''
+      
+      return await apiFetch(`/reporte/estadisticas/resumen${queryString}`)
+    },
+
+    getCargaTrabajo: async (fechaInicio?: string, fechaFin?: string, area?: string): Promise<{
+      porArea: Array<{ area: string; cantidad: number; porcentaje: number }>
+    }> => {
+      const params = new URLSearchParams()
+      if (fechaInicio) params.append('fechaInicio', fechaInicio)
+      if (fechaFin) params.append('fechaFin', fechaFin)
+      if (area) params.append('area', area)
+      const queryString = params.toString() ? `?${params.toString()}` : ''
+      
+      return await apiFetch(`/reporte/estadisticas/carga-trabajo${queryString}`)
+    },
+
+    getTiempoResolucion: async (): Promise<Array<{
+      tipo: string
+      tiempoPromedioDias: number
+      cantidadResueltos: number
+    }>> => {
+      return await apiFetch('/reporte/estadisticas/tiempo-resolucion')
+    },
+
+    getReclamosPorEstado: async (fechaInicio?: string, fechaFin?: string): Promise<Array<{
+      estado: string
+      cantidad: number
+      porcentaje: number
+    }>> => {
+      const params = new URLSearchParams()
+      if (fechaInicio) params.append('fechaInicio', fechaInicio)
+      if (fechaFin) params.append('fechaFin', fechaFin)
+      const queryString = params.toString() ? `?${params.toString()}` : ''
+      
+      return await apiFetch(`/reporte/estadisticas/por-estado${queryString}`)
+    },
+
     getOverview: async (): Promise<ClaimStatistics> => {
-      const claims = await api.claims.list()
+      // Obtener todos los reclamos (sin paginación para estadísticas)
+      const response = await api.claims.list(1, 1000) // Obtener hasta 1000 reclamos
+      const claims = response.data
       const users = await api.users.list()
       
       // Claims by status

@@ -2,20 +2,20 @@
   "devFiles": [],
   "ampDevFiles": [],
   "polyfillFiles": [
-    "static/chunks/d00c9_next_dist_build_polyfills_polyfill-nomodule.js"
+    "static/chunks/node_modules_next_dist_build_polyfills_polyfill-nomodule.js"
   ],
   "lowPriorityFiles": [],
   "rootMainFiles": [
-    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_8e6a8972._.js",
-    "static/chunks/d00c9_next_dist_compiled_react-dom_12480309._.js",
-    "static/chunks/d00c9_next_dist_compiled_react-server-dom-turbopack_18236866._.js",
-    "static/chunks/d00c9_next_dist_compiled_next-devtools_index_707e47a2.js",
-    "static/chunks/d00c9_next_dist_compiled_c1e20419._.js",
-    "static/chunks/d00c9_next_dist_client_204f9537._.js",
-    "static/chunks/d00c9_next_dist_6a9a3fc6._.js",
-    "static/chunks/d00c9_@swc_helpers_cjs_754f0699._.js",
-    "static/chunks/3d860_2025_Programacion avanzada_Proyecto 3_front-proyecto3_front-proyecto3_a0ff3932._.js",
-    "static/chunks/88e7d_2025_Programacion avanzada_Proyecto 3_front-proyecto3_front-proyecto3_994dd613._.js"
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_bae88007._.js",
+    "static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js",
+    "static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_9212ccad._.js",
+    "static/chunks/node_modules_next_dist_compiled_next-devtools_index_1dd7fb59.js",
+    "static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js",
+    "static/chunks/node_modules_next_dist_client_aaee43fe._.js",
+    "static/chunks/node_modules_next_dist_7a8122d0._.js",
+    "static/chunks/node_modules_@swc_helpers_cjs_d80fb378._.js",
+    "static/chunks/_a0ff3932._.js",
+    "static/chunks/turbopack-_45210fd5._.js"
   ],
   "pages": {},
   "ampFirstPages": []

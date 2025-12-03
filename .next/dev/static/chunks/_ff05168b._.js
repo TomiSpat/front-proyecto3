@@ -96,7 +96,7 @@ function ClientLayout({ children }) {
             if (!isLoading && !user) {
                 router.push("/login");
             } else if (!isLoading && user && user.role !== __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["UserRole"].CLIENT) {
-                router.push("/dashboard"); // Internal users shouldn't be here
+                router.push("/claims"); // Internal users shouldn't be here
             }
         }
     }["ClientLayout.useEffect"], [

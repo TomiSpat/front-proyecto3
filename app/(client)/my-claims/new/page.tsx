@@ -74,22 +74,24 @@ export default function NewClaimPage() {
 
     setIsSubmitting(true)
     try {
+      // Cliente NO envía clienteId - el backend lo detecta automáticamente del token JWT
       const newClaim = await api.claims.create({
-        clienteId: user.clientId,
         proyectoId: formData.proyectoId,
         tipoProyectoId: selectedProject.tipoProyectoId,
         tipo: formData.tipo,
+        descripcion: formData.descripcion,
+        // Campos opcionales que el cliente puede enviar
         prioridad: formData.prioridad,
         criticidad: formData.criticidad,
-        descripcion: formData.descripcion,
         areaInicial: formData.areaInicial,
       })
 
       toast({ title: "Reclamo enviado", description: `Tu reclamo ha sido recibido exitosamente.` })
       router.push("/home")
-    } catch (error) {
+    } catch (error: any) {
       console.error(error)
-      toast({ title: "Error", description: "Hubo un problema al enviar el reclamo.", variant: "destructive" })
+      const errorMsg = error.message || "Hubo un problema al enviar el reclamo."
+      toast({ title: "Error", description: errorMsg, variant: "destructive" })
     } finally {
       setIsSubmitting(false)
     }

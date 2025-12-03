@@ -110,43 +110,31 @@ export default function ProjectsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>ID</TableHead>
                   <TableHead>Nombre del Proyecto</TableHead>
                   <TableHead>Cliente</TableHead>
-                  <TableHead>Tipo</TableHead>
-                  <TableHead>Estado</TableHead>
+                  <TableHead>Tipo de Proyecto</TableHead>
                   <TableHead className="text-right">Acciones</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {loading ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="text-center py-8">
+                    <TableCell colSpan={4} className="text-center py-8">
                       Cargando...
                     </TableCell>
                   </TableRow>
                 ) : filteredProjects.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="text-center py-8">
+                    <TableCell colSpan={4} className="text-center py-8">
                       No se encontraron proyectos.
                     </TableCell>
                   </TableRow>
                 ) : (
                   filteredProjects.map((project) => (
                     <TableRow key={project.id}>
-                      <TableCell className="font-medium">{project.id}</TableCell>
-                      <TableCell>{project.name}</TableCell>
-                      <TableCell>{project.clientName}</TableCell>
-                      <TableCell>{project.tipoProyectoName || "Sin tipo"}</TableCell>
-                      <TableCell>
-                        <span
-                          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            project.isActive ? "bg-blue-100 text-blue-800" : "bg-gray-100 text-gray-800"
-                          }`}
-                        >
-                          {project.isActive ? "Activo" : "Inactivo"}
-                        </span>
-                      </TableCell>
+                      <TableCell className="font-medium">{project.name}</TableCell>
+                      <TableCell>{project.clientName || "N/A"}</TableCell>
+                      <TableCell>{project.tipoProyectoName || "N/A"}</TableCell>
                       <TableCell className="text-right">
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>

@@ -62,7 +62,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (loggedUser.role === UserRole.CLIENT) {
         router.push("/home")
       } else {
-        router.push("/dashboard")
+        router.push("/claims")
       }
     } catch (err) {
       console.error("Login failed", err)

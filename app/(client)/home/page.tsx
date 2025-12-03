@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { PlusCircle, Loader2 } from "lucide-react"
+import { PlusCircle, Loader2, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { StatusBadge } from "@/components/claims/status-badge"
 import { api } from "@/lib/api"
 import { useAuth } from "@/lib/auth-context"
-import type { Claim } from "@/lib/types"
+import type { Claim, PaginationMeta } from "@/lib/types"
 import { useToast } from "@/components/ui/use-toast"
 
 export default function ClientHome() {
@@ -17,26 +17,36 @@ export default function ClientHome() {
   const { toast } = useToast()
   const [claims, setClaims] = useState<Claim[]>([])
   const [loading, setLoading] = useState(true)
+  const [pagination, setPagination] = useState<PaginationMeta>({
+    total: 0,
+    page: 1,
+    limit: 10,
+    totalPages: 0,
+    hasNextPage: false,
+    hasPreviousPage: false,
+  })
+
+  const loadClaims = async (page: number = 1) => {
+    if (!user?.clientId) {
+      setLoading(false)
+      return
+    }
+    try {
+      setLoading(true)
+      const response = await api.claims.listByClient(user.clientId, page, 10)
+      setClaims(response.data)
+      setPagination(response.meta)
+    } catch (error) {
+      console.error(error)
+      toast({ title: "Error", description: "No se pudieron cargar los reclamos", variant: "destructive" })
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    const loadClaims = async () => {
-      if (!user?.clientId) {
-        setLoading(false)
-        return
-      }
-      try {
-        setLoading(true)
-        const data = await api.claims.listByClient(user.clientId)
-        setClaims(data)
-      } catch (error) {
-        console.error(error)
-        toast({ title: "Error", description: "No se pudieron cargar los reclamos", variant: "destructive" })
-      } finally {
-        setLoading(false)
-      }
-    }
-    loadClaims()
-  }, [user, toast])
+    loadClaims(1)
+  }, [user])
 
   return (
     <div className="space-y-6">
@@ -101,6 +111,38 @@ export default function ClientHome() {
                 )}
               </TableBody>
             </Table>
+          )}
+
+          {/* Paginación */}
+          {!loading && pagination.totalPages > 1 && (
+            <div className="flex items-center justify-between px-2 py-4 border-t">
+              <div className="text-sm text-muted-foreground">
+                Mostrando {claims.length} de {pagination.total} reclamos
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => loadClaims(pagination.page - 1)}
+                  disabled={!pagination.hasPreviousPage}
+                >
+                  <ChevronLeft className="h-4 w-4 mr-1" />
+                  Anterior
+                </Button>
+                <div className="text-sm font-medium">
+                  Página {pagination.page} de {pagination.totalPages}
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => loadClaims(pagination.page + 1)}
+                  disabled={!pagination.hasNextPage}
+                >
+                  Siguiente
+                  <ChevronRight className="h-4 w-4 ml-1" />
+                </Button>
+              </div>
+            </div>
           )}
         </CardContent>
       </Card>

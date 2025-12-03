@@ -6,6 +6,20 @@ export { UserRole, ClaimStatus, ClaimPriority, ClaimCriticality, ClaimArea, Proj
 // TIPOS DEL FRONTEND
 // ==========================================
 
+export interface PaginationMeta {
+  total: number
+  page: number
+  limit: number
+  totalPages: number
+  hasNextPage: boolean
+  hasPreviousPage: boolean
+}
+
+export interface PaginatedResponse<T> {
+  data: T[]
+  meta: PaginationMeta
+}
+
 export interface User {
   id: string
   name: string
@@ -168,6 +182,7 @@ export interface BackendUser {
   rol: string
   areaAsignada?: string
   estado: string
+  clienteId?: string | { _id: string } // Puede venir como string o como objeto poblado
   createdAt?: string
   updatedAt?: string
 }
@@ -177,10 +192,10 @@ export interface BackendClient {
   nombre: string
   apellido: string
   numDocumento: string
-  fechaNacimiento: string
+  fechaNacimiento?: string
   numTelefono: string
   email: string
-  isDeleted: boolean
+  isDeleted?: boolean
   createdAt?: string
   updatedAt?: string
 }
@@ -197,38 +212,46 @@ export interface BackendTipoProyecto {
 export interface BackendProject {
   _id: string
   nombre: string
-  descripcion: string
-  clienteId: string | { _id: string; nombre: string; apellido: string }
-  tipoProyectoId: string | { _id: string; nombre: string }
-  fechaInicio: string
+  descripcion?: string
+  clienteNombre?: string
+  clienteApellido?: string
+  tipoProyecto?: string
+  clienteId?: string | { _id: string; nombre: string; apellido: string }
+  tipoProyectoId?: string | { _id: string; nombre: string }
+  fechaInicio?: string
   fechaFin?: string
-  isDeleted: boolean
+  isDeleted?: boolean
   createdAt?: string
   updatedAt?: string
 }
 
 export interface BackendClaim {
   _id: string
-  clienteId: string | { _id: string; nombre: string; apellido: string }
-  proyectoId: string | { _id: string; nombre: string }
-  tipoProyectoId: string | { _id: string; nombre: string }
+  clienteNombre?: string
+  clienteApellido?: string
+  proyectoNombre?: string
+  responsableNombre?: string
+  responsableApellido?: string
+  clienteId?: string | { _id: string; nombre: string; apellido: string }
+  proyectoId?: string | { _id: string; nombre: string }
+  tipoProyectoId?: string | { _id: string; nombre: string }
   codigo?: string
-  tipo: string
+  tipo?: string
   prioridad: string
-  criticidad: string
-  descripcion: string
-  areaActual: string
+  criticidad?: string
+  descripcion?: string
+  areaActual?: string
   estadoActual: string
-  puedeModificar: boolean
-  puedeReasignar: boolean
+  puedeModificar?: boolean
+  puedeReasignar?: boolean
   responsableActualId?: string | { _id: string; nombre: string; apellido: string }
-  creadoPorUsuarioId: string
+  creadoPorUsuarioId?: string
   fechaResolucion?: string
   fechaCierre?: string
   resumenResolucion?: string
   feedbackCliente?: string
   createdAt: string
-  updatedAt: string
+  updatedAt?: string
 }
 
 export interface BackendTimelineEvent {
